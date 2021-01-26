@@ -1,12 +1,14 @@
+import React from 'react'
+import { ServerStyleSheets } from '@material-ui/core/styles'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-import Theme from '../components/Theme'
+import theme from '../components/Theme'
 
-class MyDocument extends Document {
+export default class MyDocument extends Document {
     render() {
-        return <Html>
+        return <Html lang={'en'}>
             <Head>
                 <meta charSet="utf-8" />
-                <meta name="theme-color" content={Theme.palette.primary.main} />
+                <meta name="theme-color" content={theme.palette.primary.main} />
                 <meta name="description" content="Landing page of PT. Langgeng Cipta Solusi." />
                 <meta property="og:locale" content="en_US" />
                 <meta property="og:type" content="website" />
@@ -30,4 +32,19 @@ class MyDocument extends Document {
     }
 }
 
-export default MyDocument
+MyDocument.getInitialProps = async (ctx) => {
+    const sheets = new ServerStyleSheets();
+    const originalRenderPage = ctx.renderPage;
+
+    ctx.renderPage = () =>
+        originalRenderPage({
+            enhanceApp: (App) => (props) => sheets.collect(<App {...props} />),
+        });
+
+    const initialProps = await Document.getInitialProps(ctx);
+
+    return {
+        ...initialProps,
+        styles: [...React.Children.toArray(initialProps.styles), sheets.getStyleElement()],
+    };
+};
