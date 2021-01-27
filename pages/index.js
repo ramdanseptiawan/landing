@@ -135,7 +135,7 @@ export default function Home() {
 							In order to implement a robust production plans and easier maintenance process, we use the full-stack <Link color={'textPrimary'} href={'https://www.mongodb.com/mern-stack'} target={'_blank'} rel={'noopener'}>MERN Solution</Link> and other reliable programming language.
 						</Typography>
 					</Grid>
-					<Grid item xs={12} md={12}>
+					<Grid item xs={12} md={12} style={{ paddingLeft: '10%', paddingRight: '10%', }}>
 						<Grid
 							container
 							justify={'center'}
@@ -150,12 +150,17 @@ export default function Home() {
 										justify={'center'}
 										alignContent={'center'}
 										alignItems={'center'}
-										style={{ minHeight: 250, padding: '5%' }}
+										style={{ height: 150, padding: '5%' }}
 									>
 										<Grid item>
-											<Link href={'https://www.mongodb.com/'} target={'_blank'} rel={'noopener'}>
-												<MongoDisplay height={'100%'} width={'100%'} />
-											</Link>
+											<MongoDisplay height={'100px'} width={'100%'} />
+										</Grid>
+										<Grid item xs={12}>
+											<Typography align={'center'}>
+												<Link href={'https://www.mongodb.com/'} target={'_blank'} rel={'noopener'} color={'textPrimary'}>
+													MongoDB
+												</Link>
+											</Typography>
 										</Grid>
 									</Grid>
 								</Paper>
@@ -167,12 +172,17 @@ export default function Home() {
 										justify={'center'}
 										alignContent={'center'}
 										alignItems={'center'}
-										style={{ minHeight: 250, padding: '5%' }}
+										style={{ height: 150, padding: '5%' }}
 									>
 										<Grid item>
-											<Link href={'https://expressjs.com/'} target={'_blank'} rel={'noopener'}>
-												<ExpressDisplay height={'100%'} width={'100%'} />
-											</Link>
+											<ExpressDisplay height={'100px'} width={'100%'} />
+										</Grid>
+										<Grid item xs={12}>
+											<Typography align={'center'}>
+												<Link href={'https://expressjs.com/'} target={'_blank'} rel={'noopener'} color={'textPrimary'}>
+													Express.js
+												</Link>
+											</Typography>
 										</Grid>
 									</Grid>
 								</Paper>
@@ -184,12 +194,17 @@ export default function Home() {
 										justify={'center'}
 										alignContent={'center'}
 										alignItems={'center'}
-										style={{ minHeight: 250, padding: '5%' }}
+										style={{ height: 150, padding: '5%' }}
 									>
 										<Grid item>
-											<Link href={'https://reactjs.org/'} target={'_blank'} rel={'noopener'}>
-												<ReactDisplay height={'100%'} width={'100%'} />
-											</Link>
+											<ReactDisplay height={'100px'} width={'100%'} />
+										</Grid>
+										<Grid item xs={12}>
+											<Typography align={'center'}>
+												<Link href={'https://reactjs.org/'} target={'_blank'} rel={'noopener'} color={'textPrimary'}>
+													React Framework
+												</Link>
+											</Typography>
 										</Grid>
 									</Grid>
 								</Paper>
@@ -201,12 +216,17 @@ export default function Home() {
 										justify={'center'}
 										alignContent={'center'}
 										alignItems={'center'}
-										style={{ minHeight: 250, padding: '5%' }}
+										style={{ height: 150, padding: '5%' }}
 									>
 										<Grid item>
-											<Link href={'https://nodejs.org/en/about/'} target={'_blank'} rel={'noopener'}>
-												<NodeDisplay height={'100%'} width={'100%'} />
-											</Link>
+											<NodeDisplay height={'100px'} width={'100%'} />
+										</Grid>
+										<Grid item xs={12}>
+											<Typography align={'center'}>
+												<Link href={'https://nodejs.org/en/about/'} target={'_blank'} rel={'noopener'} color={'textPrimary'}>
+													NodeJS
+												</Link>
+											</Typography>
 										</Grid>
 									</Grid>
 								</Paper>
@@ -219,12 +239,17 @@ export default function Home() {
 										justify={'center'}
 										alignContent={'center'}
 										alignItems={'center'}
-										style={{ minHeight: 250, padding: '5%' }}
+										style={{ height: 150, padding: '5%' }}
 									>
 										<Grid item>
-											<Link href={'https://www.python.org/about/'} target={'_blank'} rel={'noopener'}>
-												<PythonDisplay height={'100%'} width={'100%'} />
-											</Link>
+											<PythonDisplay height={'100px'} width={'100%'} />
+										</Grid>
+										<Grid item xs={12}>
+											<Typography align={'center'}>
+												<Link href={'https://www.python.org/about/'} target={'_blank'} rel={'noopener'} color={'textPrimary'}>
+													Python
+												</Link>
+											</Typography>
 										</Grid>
 									</Grid>
 								</Paper>
@@ -236,12 +261,17 @@ export default function Home() {
 										justify={'center'}
 										alignContent={'center'}
 										alignItems={'center'}
-										style={{ minHeight: 250, padding: '5%' }}
+										style={{ height: 150, padding: '5%' }}
 									>
 										<Grid item>
-											<Link href={'https://kotlinlang.org/'} target={'_blank'} rel={'noopener'}>
-												<KotlinDisplay height={'100%'} width={'100%'} />
-											</Link>
+											<KotlinDisplay height={'100px'} width={'100%'} />
+										</Grid>
+										<Grid item xs={12}>
+											<Typography align={'center'}>
+												<Link href={'https://kotlinlang.org/'} target={'_blank'} rel={'noopener'} color={'textPrimary'}>
+													Kotlin
+												</Link>
+											</Typography>
 										</Grid>
 									</Grid>
 								</Paper>
@@ -253,12 +283,17 @@ export default function Home() {
 										justify={'center'}
 										alignContent={'center'}
 										alignItems={'center'}
-										style={{ minHeight: 250, padding: '5%' }}
+										style={{ height: 150, padding: '5%' }}
 									>
 										<Grid item>
-											<Link href={'https://developer.android.com/studio'} target={'_blank'} rel={'noopener'}>
-												<AndroidStudioDisplay height={'100%'} width={'170px'} />
-											</Link>
+											<AndroidStudioDisplay height={'100px'} width={'170px'} />
+										</Grid>
+										<Grid item xs={12}>
+											<Typography align={'center'}>
+												<Link href={'https://developer.android.com/studio'} target={'_blank'} rel={'noopener'} color={'textPrimary'}>
+													Android Studio
+												</Link>
+											</Typography>
 										</Grid>
 									</Grid>
 								</Paper>
@@ -270,12 +305,17 @@ export default function Home() {
 										justify={'center'}
 										alignContent={'center'}
 										alignItems={'center'}
-										style={{ minHeight: 250, padding: '5%' }}
+										style={{ height: 150, padding: '5%' }}
 									>
 										<Grid item>
-											<Link href={'https://www.cplusplus.com/info/description/'} target={'_blank'} rel={'noopener'}>
-												<CPPDisplay height={'100%'} width={'165px'} />
-											</Link>
+											<CPPDisplay height={'100px'} width={'165px'} />
+										</Grid>
+										<Grid item xs={12}>
+											<Typography align={'center'}>
+												<Link href={'https://www.cplusplus.com/info/description/'} target={'_blank'} rel={'noopener'} color={'textPrimary'}>
+													C++
+												</Link>
+											</Typography>
 										</Grid>
 									</Grid>
 								</Paper>
@@ -319,8 +359,12 @@ export default function Home() {
 											alignItems={'center'}
 										>
 											<Grid item>
-												<Typography align={'center'} style={{ color: 'white' }}>Phone: +62 22 4268728</Typography>
-												<Typography align={'center'} style={{ color: 'white' }}>Fax: +62 22 4268730</Typography>
+												<Typography align={'center'} style={{ color: 'white' }}>
+													<Link href={'tel:+62-22-4268728'} target={'_blank'} rel={'noopener'} style={{ color: 'white' }}>Phone: +62-22-4268728</Link>
+												</Typography>
+												<Typography align={'center'} style={{ color: 'white' }}>
+													<Link href={'tel:+62-22-4268730'} target={'_blank'} rel={'noopener'} style={{ color: 'white' }}>Fax: +62-22-4268730</Link>
+												</Typography>
 											</Grid>
 										</Grid>
 									</Grid>
