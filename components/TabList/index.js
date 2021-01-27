@@ -28,7 +28,6 @@ const TabList = ({ sections = [] }) => {
                 onChange={(event, value) => {
                     event.preventDefault()
                     document.getElementById(sections[value].hash).scrollIntoView()
-                    console.log(value)
                 }}
                 variant={'scrollable'}
                 scrollButtons={'on'}
