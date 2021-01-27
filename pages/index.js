@@ -46,7 +46,6 @@ export default function Home() {
 							src={'/meeting.jpg'}
 							alt={'Kantor PT. Langgeng Cipta Solusi'}
 						/>
-						{/* <Paper component={Image} layout={'responsive'} width={'100%'} height={'100%'} objectFit={'contain'} src={'/meeting.jpg'} alt={'Kantor PT. Langgeng Cipta Solusi'} /> */}
 					</Grid>
 					<Grid item xs={12} md={6}>
 						<Grid container>
@@ -57,12 +56,7 @@ export default function Home() {
 							</Grid>
 							<Grid item xs={12} md={12} style={{ padding: 10 }}>
 								<Typography align={'justify'}>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-								</Typography>
-							</Grid>
-							<Grid item xs={12} md={12} style={{ padding: 10 }}>
-								<Typography align={'justify'}>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+									PT Langgeng Cipta Solusi (LCS) is an Indonesian IT solution based company, established in 2020, located in Bandung, West Java, Indonesia. We develop an end to end integrated real time on-line solutions focusing in monitoring and creating an early warning system. Supported by competent and dedicated multidiscipline R&D team, enable us to continuously improving our products to the latest trends and innovations. Our objectives and motivations are always to create products that empower our customers to reach their goals as well as giving benefit to all stake holders.
 								</Typography>
 							</Grid>
 						</Grid>
@@ -110,7 +104,7 @@ export default function Home() {
 											<Grid container>
 												<Grid item xs={12} md={12} style={{ maxHeight: '40vh', overflow: 'auto' }}>
 													<Typography align={'justify'}>
-														Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+														JembatanKu is an Indonesia domestic product in the form of an integrated system which is built and developed to provide an early alerting and health monitoring system for bridges in real time.
 													</Typography>
 												</Grid>
 											</Grid>

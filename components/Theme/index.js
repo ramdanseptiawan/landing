@@ -1,4 +1,4 @@
-import { createMuiTheme, makeStyles } from '@material-ui/core'
+import { createMuiTheme } from '@material-ui/core'
 
 const Theme = createMuiTheme({
     "palette": {
@@ -34,15 +34,6 @@ const Theme = createMuiTheme({
             "disabled": "rgba(0, 0, 0, 0.38)",
             "hint": "rgba(0, 0, 0, 0.38)"
         }
-    }
-});
-
-export const tabStyles = makeStyles({
-    root: {
-        justifyContent: "center"
-    },
-    scroller: {
-        flexGrow: "0"
     }
 });
 

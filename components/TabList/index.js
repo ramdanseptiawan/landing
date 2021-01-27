@@ -1,17 +1,24 @@
 import React from 'react'
-import { AppBar, Tab, Tabs, } from '@material-ui/core'
-import { tabStyles } from '../Theme'
+import { AppBar, Tab, Tabs, withStyles, } from '@material-ui/core'
 import Scrollspy from 'react-scrollspy'
 import _ from 'lodash'
 
+const TabsCentered = withStyles({
+    root: {
+        justifyContent: "center"
+    },
+    scroller: {
+        flexGrow: "0"
+    }
+})(Tabs);
+
 const TabList = ({ sections = [] }) => {
-    const tabStyle = tabStyles()
     const [section, setSection] = React.useState(0)
     return <>
         <AppBar variant={'elevation'} position={'sticky'}>
-            <Tabs
+            <TabsCentered
+                style={{ justifyContent: 'center', flexGrow: "0" }}
                 value={section}
-                classes={{ root: tabStyle.root, scroller: tabStyle.scroller }}
                 onChange={(event, value) => {
                     event.preventDefault()
                     document.getElementById(sections[value].hash).scrollIntoView()
@@ -21,7 +28,7 @@ const TabList = ({ sections = [] }) => {
                 scrollButtons={'on'}
             >
                 {sections.map((section, index) => <Tab style={{ textTransform: 'capitalize', fontFamily: '' }} key={index} label={section.label} />)}
-            </Tabs>
+            </TabsCentered>
         </AppBar>
         <Scrollspy
             items={sections.map((section) => section.hash)}
