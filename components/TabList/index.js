@@ -2,6 +2,7 @@ import React from 'react'
 import { AppBar, Tab, Tabs, withStyles, } from '@material-ui/core'
 import Scrollspy from 'react-scrollspy'
 import _ from 'lodash'
+import theme from '../Theme'
 
 const TabsCentered = withStyles({
     root: {
@@ -14,14 +15,15 @@ const TabsCentered = withStyles({
 
 const TabBold = withStyles({
     selected: {
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        color: theme.palette.primary.dark + ' !important'
     }
 })(Tab);
 
 const TabList = ({ sections = [] }) => {
     const [section, setSection] = React.useState(0)
     return <>
-        <AppBar variant={'elevation'} position={'sticky'}>
+        <AppBar variant={'elevation'} position={'sticky'} color={'default'}>
             <TabsCentered
                 style={{ justifyContent: 'center', flexGrow: "0" }}
                 value={section}
@@ -31,10 +33,9 @@ const TabList = ({ sections = [] }) => {
                 }}
                 variant={'scrollable'}
                 scrollButtons={'on'}
-                indicatorColor={'secondary'}
-                textColor={'secondary'}
+                indicatorColor={'primary'}
             >
-                {sections.map((section, index) => <TabBold style={{ textTransform: 'capitalize', fontFamily: '' }} key={index} label={section.label} />)}
+                {sections.map((section, index) => <TabBold style={{ textTransform: 'capitalize', fontFamily: '', color: 'black' }} key={index} label={section.label} />)}
             </TabsCentered>
         </AppBar>
         <Scrollspy
