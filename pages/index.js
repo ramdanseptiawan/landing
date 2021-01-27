@@ -94,15 +94,14 @@ export default function Home() {
 										justify={'center'}
 										alignContent={'center'}
 										alignItems={'center'}
+										style={{ padding: '5%' }}
 									>
-										<Grid item item xs={12} md={6} style={{ height: '100%', padding: '5%' }}>
-											<Link href={'https://www.mongodb.com/'} target={'_blank'} rel={'noopener'}>
-												<JembatankuDisplay width={'100%'} height={'100%'} fill={'#223159'} />
-											</Link>
+										<Grid item item xs={12} md={6} style={{ height: '100%' }}>
+											<JembatankuDisplay width={'100%'} height={'100%'} fill={'#223159'} />
 										</Grid>
 										<Grid item xs={12} md={6} style={{ height: '100%' }}>
-											<Grid container>
-												<Grid item xs={12} md={12} style={{ maxHeight: '40vh', overflow: 'auto' }}>
+											<Grid container spacing={2}>
+												<Grid item xs={12} md={12} style={{ maxHeight: '50vh', overflow: 'auto' }}>
 													<Typography align={'justify'}>
 														JembatanKu is an Indonesia domestic product in the form of an integrated system which is built and developed to provide an early alerting and health monitoring system for bridges in real time.
 													</Typography>
@@ -135,7 +134,7 @@ export default function Home() {
 							In order to implement a robust production plans and easier maintenance process, we use the full-stack <Link color={'textPrimary'} href={'https://www.mongodb.com/mern-stack'} target={'_blank'} rel={'noopener'}>MERN Solution</Link> and other reliable programming language.
 						</Typography>
 					</Grid>
-					<Grid item xs={12} md={12} style={{ paddingLeft: '10%', paddingRight: '10%', }}>
+					<Grid item xs={12} md={12} style={{ paddingLeft: '10%', paddingRight: '10%', paddingTop: '2.5%' }}>
 						<Grid
 							container
 							justify={'center'}

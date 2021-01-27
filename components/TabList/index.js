@@ -12,6 +12,12 @@ const TabsCentered = withStyles({
     }
 })(Tabs);
 
+const TabBold = withStyles({
+    selected: {
+        fontWeight: 'bold'
+    }
+})(Tab);
+
 const TabList = ({ sections = [] }) => {
     const [section, setSection] = React.useState(0)
     return <>
@@ -26,8 +32,10 @@ const TabList = ({ sections = [] }) => {
                 }}
                 variant={'scrollable'}
                 scrollButtons={'on'}
+                indicatorColor={'secondary'}
+                textColor={'secondary'}
             >
-                {sections.map((section, index) => <Tab style={{ textTransform: 'capitalize', fontFamily: '' }} key={index} label={section.label} />)}
+                {sections.map((section, index) => <TabBold style={{ textTransform: 'capitalize', fontFamily: '' }} key={index} label={section.label} />)}
             </TabsCentered>
         </AppBar>
         <Scrollspy
