@@ -1,6 +1,7 @@
-import { Divider, Grid, Link, Paper, Typography } from '@material-ui/core'
+import { Button, Divider, Grid, Link, Paper, Typography } from '@material-ui/core'
 import Head from 'next/head'
 import Image from 'next/image'
+import Router from 'next/router'
 import React from 'react'
 import Section from '../components/Section'
 import TabList from '../components/TabList'
@@ -65,7 +66,7 @@ export default function Home() {
 			</Grid>
 		},
 		{
-			hash: 'product', background: 'linear-gradient(to bottom right, black, black, gray)', value: <Grid item xs={12} md={12}>
+			hash: 'product', background: 'linear-gradient(to bottom right, black, gray, gray)', value: <Grid item xs={12} md={12}>
 				<Grid
 					container
 					justify={'center'}
@@ -85,33 +86,47 @@ export default function Home() {
 						</Typography>
 					</Grid>
 					<Grid item xs={12} md={8}>
-						<Paper style={{ padding: '2.5%' }}>
-							<Grid container>
-								<Grid item xs={12} md={12}>
-									<Grid
-										container
-										spacing={5}
-										justify={'center'}
-										alignContent={'center'}
-										alignItems={'center'}
-										style={{ padding: '5%' }}
-									>
-										<Grid item item xs={12} md={6} style={{ height: '100%' }}>
-											<JembatankuDisplay width={'100%'} height={'100%'} fill={'#223159'} />
-										</Grid>
-										<Grid item xs={12} md={6} style={{ height: '100%' }}>
-											<Grid container spacing={2}>
-												<Grid item xs={12} md={12} style={{ maxHeight: '50vh', overflow: 'auto' }}>
-													<Typography align={'justify'}>
-														JembatanKu is an Indonesia domestic product in the form of an integrated system which is built and developed to provide an early alerting and health monitoring system for bridges in real time.
-													</Typography>
-												</Grid>
+						<Grid container>
+							<Grid item xs={12} md={12} style={{
+								backgroundAttachment: 'fixed',
+								backgroundRepeat: 'no-repeat',
+								backgroundSize: 'cover',
+								WebkitBackgroundSize: 'cover',
+								background: 'linear-gradient(to bottom right, black, black, gray)',
+								borderRadius: 25
+							}}>
+								<Grid
+									container
+									justify={'center'}
+									alignContent={'center'}
+									alignItems={'center'}
+									style={{
+										padding: '5%',
+										backdropFilter: 'blur(150px)',
+										WebkitBackdropFilter: 'blur(150px)',
+										borderRadius: 25
+									}}
+								>
+									<Grid item item xs={12} md={6} style={{ height: '100%', padding: '5%' }}>
+										<JembatankuDisplay width={'100%'} height={'100%'} fill={'#ffffff'} />
+									</Grid>
+									<Grid item xs={12} md={6} style={{ height: '100%' }}>
+										<Grid container spacing={2}>
+											<Grid item xs={12} md={12} style={{ maxHeight: '50vh', overflow: 'auto' }}>
+												<Typography align={'justify'} style={{ color: 'white' }}>
+													JembatanKu is an Indonesia domestic product in the form of an integrated system which is built and developed to provide an early alerting and health monitoring system for bridges in real time.
+												</Typography>
 											</Grid>
 										</Grid>
+										{/* <Grid item xs={12} md={12}>
+											<Button fullWidth variant={'outlined'} style={{ color: 'white', borderColor: 'white' }} onClick={() => Router.push('/jembatanku')}>
+												Explore
+											</Button>
+										</Grid> */}
 									</Grid>
 								</Grid>
 							</Grid>
-						</Paper>
+						</Grid>
 					</Grid>
 				</Grid>
 			</Grid>
@@ -325,7 +340,7 @@ export default function Home() {
 			</Grid>
 		},
 		{
-			hash: 'contact', background: 'linear-gradient(to bottom right, black, black, gray)', value: <Grid item xs={12} md={12}>
+			hash: 'contact', background: 'linear-gradient(to bottom right, gray, gray, black)', value: <Grid item xs={12} md={12}>
 				<Grid
 					container
 					justify={'center'}

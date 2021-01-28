@@ -2,6 +2,7 @@ import React from 'react'
 import { AppBar, Tab, Tabs, withStyles, } from '@material-ui/core'
 import Scrollspy from 'react-scrollspy'
 import _ from 'lodash'
+import Router from 'next/router';
 import theme from '../Theme'
 
 const TabsCentered = withStyles({
@@ -35,7 +36,12 @@ const TabList = ({ sections = [] }) => {
                 scrollButtons={'on'}
                 indicatorColor={'primary'}
             >
-                {sections.map((section, index) => <TabBold style={{ textTransform: 'capitalize', fontFamily: '', color: 'black' }} key={index} label={section.label} />)}
+                {sections.map((section, index) => <TabBold
+                    style={{ textTransform: 'capitalize', fontFamily: '', color: 'black' }}
+                    key={index}
+                    label={section.label}
+                    onClick={() => Router.push('/#' + section.hash)}
+                />)}
             </TabsCentered>
         </AppBar>
         <Scrollspy
