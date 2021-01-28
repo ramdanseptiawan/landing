@@ -15,7 +15,7 @@ const Jembatanku = ({ }) => {
 			<meta name="twitter:card" content="summary" />
 			<meta name="twitter:description" content="JembatanKu is an Indonesia domestic product in the form of an integrated system which is built and developed to provide an early alerting and health monitoring system for bridges in real time." />
 			<meta name="twitter:title" content="PT. Langgeng Cipta Solusi - JembatanKu" />
-			<meta name="twitter:image" content="/logo512.png" />
+			<meta name="twitter:image" content="https://lcsindonesia.com/logo512.png" />
 			<link rel="canonical" href="https://lcsindonesia.com/jembatanku" />
         </Head>
         <Grid container style={{ height: '100vh' }} alignContent={'center'} alignItems={'center'} justify={'center'}>

@@ -451,7 +451,7 @@ export default function Home() {
 			<meta name="twitter:card" content="summary" />
 			<meta name="twitter:description" content="PT Langgeng Cipta Solusi (LCS) is an Indonesian IT solution based company, established in 2020, located in Bandung, West Java, Indonesia. We develop an end to end integrated real time on-line solutions focusing in monitoring and creating an early warning system." />
 			<meta name="twitter:title" content="PT. Langgeng Cipta Solusi - Empowering the Future" />
-			<meta name="twitter:image" content="/logo512.png" />
+			<meta name="twitter:image" content="https://lcsindonesia.com/logo512.png" />
 			<link rel="canonical" href="https://lcsindonesia.com/" />
 		</Head>
 		<Section
