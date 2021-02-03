@@ -1,9 +1,9 @@
-import React from 'react'
-import { AppBar, Tab, Tabs, withStyles, } from '@material-ui/core'
-import Scrollspy from 'react-scrollspy'
-import _ from 'lodash'
+import React from 'react';
+import { AppBar, Tab, Tabs, withStyles, } from '@material-ui/core';
+import Scrollspy from 'react-scrollspy';
+import _ from 'lodash';
 import Router from 'next/router';
-import theme from '../Theme'
+import theme from '../Theme';
 
 const TabsCentered = withStyles({
     root: {
@@ -53,4 +53,4 @@ const TabList = ({ sections = [] }) => {
     </>
 }
 
-export default TabList
+export default TabList;

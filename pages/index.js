@@ -1,22 +1,21 @@
-import { Button, Divider, Grid, Link, Paper, Typography } from '@material-ui/core'
-import Head from 'next/head'
-import Image from 'next/image'
-import Router from 'next/router'
-import React from 'react'
-import Section from '../components/Section'
-import TabList from '../components/TabList'
-import { Email, LocationOn, PhoneIphone } from '@material-ui/icons'
-import { ReactComponent as JembatankuDisplay } from '../assets/Logo/jembatanku.svg'
-import { ReactComponent as LCSDisplay } from '../assets/Logo/lcs.svg'
-
-import { ReactComponent as AndroidStudioDisplay } from '../assets/Logo/androidStudio.svg'
-import { ReactComponent as CPPDisplay } from '../assets/Logo/cpp.svg'
-import { ReactComponent as MongoDisplay } from '../assets/Logo/mongo.svg'
-import { ReactComponent as ExpressDisplay } from '../assets/Logo/expressjs.svg'
-import { ReactComponent as ReactDisplay } from '../assets/Logo/react.svg'
-import { ReactComponent as NodeDisplay } from '../assets/Logo/nodejs.svg'
-import { ReactComponent as KotlinDisplay } from '../assets/Logo/kotlin.svg'
-import { ReactComponent as PythonDisplay } from '../assets/Logo/python.svg'
+import { Divider, Grid, Link, Paper, Typography } from '@material-ui/core';
+import Head from 'next/head';
+import Image from 'next/image';
+import React from 'react';
+import Section from '../components/Section';
+import TabList from '../components/TabList';
+import Technology from '../components/Technology';
+import { Email, LocationOn, PhoneIphone } from '@material-ui/icons';
+import { ReactComponent as JembatankuDisplay } from '../assets/Logo/jembatanku.svg';
+import { ReactComponent as LCSDisplay } from '../assets/Logo/lcs.svg';
+import { ReactComponent as AndroidStudioDisplay } from '../assets/Logo/androidStudio.svg';
+import { ReactComponent as CPPDisplay } from '../assets/Logo/cpp.svg';
+import { ReactComponent as MongoDisplay } from '../assets/Logo/mongo.svg';
+import { ReactComponent as ExpressDisplay } from '../assets/Logo/expressjs.svg';
+import { ReactComponent as ReactDisplay } from '../assets/Logo/react.svg';
+import { ReactComponent as NodeDisplay } from '../assets/Logo/nodejs.svg';
+import { ReactComponent as KotlinDisplay } from '../assets/Logo/kotlin.svg';
+import { ReactComponent as PythonDisplay } from '../assets/Logo/python.svg';
 
 export default function Home() {
 	const isLarge = true
@@ -88,7 +87,7 @@ export default function Home() {
 					<Grid item xs={12} md={8}>
 						<Grid container>
 							<Grid item xs={12} md={12} style={{
-								background: 'rgba(255, 255, 255, 0.01)',
+								background: 'rgba(255, 255, 255, 0.3)',
 								boxShadow: '0 8px 32px 0 rgba( 0, 0, 0, 0.37 )',
 								backdropFilter: 'blur( 4px )',
 								WebkitBackdropFilter: 'blur( 4px )',
@@ -155,186 +154,65 @@ export default function Home() {
 							spacing={5}
 						>
 							<Grid item xs={12} md={3}>
-								<Paper>
-									<Grid
-										container
-										justify={'center'}
-										alignContent={'center'}
-										alignItems={'center'}
-										style={{ height: 150, padding: '5%' }}
-									>
-										<Grid item>
-											<MongoDisplay height={'100px'} width={'100%'} />
-										</Grid>
-										<Grid item xs={12}>
-											<Typography align={'center'}>
-												<Link href={'https://www.mongodb.com/'} target={'_blank'} rel={'noopener'} color={'textPrimary'}>
-													MongoDB
-												</Link>
-											</Typography>
-										</Grid>
-									</Grid>
-								</Paper>
+								<Technology
+									logo={<MongoDisplay height={'100px'} width={'100%'} />}
+									name={'MongoDB'}
+									link={'https://www.mongodb.com/'}
+								/>
 							</Grid>
 							<Grid item xs={12} md={3}>
-								<Paper>
-									<Grid
-										container
-										justify={'center'}
-										alignContent={'center'}
-										alignItems={'center'}
-										style={{ height: 150, padding: '5%' }}
-									>
-										<Grid item>
-											<ExpressDisplay height={'100px'} width={'100%'} />
-										</Grid>
-										<Grid item xs={12}>
-											<Typography align={'center'}>
-												<Link href={'https://expressjs.com/'} target={'_blank'} rel={'noopener'} color={'textPrimary'}>
-													Express.js
-												</Link>
-											</Typography>
-										</Grid>
-									</Grid>
-								</Paper>
+								<Technology
+									logo={<ExpressDisplay height={'100px'} width={'100%'} />}
+									name={'Express.js'}
+									link={'https://expressjs.com/'}
+								/>
 							</Grid>
 							<Grid item xs={12} md={3}>
-								<Paper>
-									<Grid
-										container
-										justify={'center'}
-										alignContent={'center'}
-										alignItems={'center'}
-										style={{ height: 150, padding: '5%' }}
-									>
-										<Grid item>
-											<ReactDisplay height={'100px'} width={'100%'} />
-										</Grid>
-										<Grid item xs={12}>
-											<Typography align={'center'}>
-												<Link href={'https://reactjs.org/'} target={'_blank'} rel={'noopener'} color={'textPrimary'}>
-													React Framework
-												</Link>
-											</Typography>
-										</Grid>
-									</Grid>
-								</Paper>
+								<Technology
+									logo={<ReactDisplay height={'100px'} width={'100%'} />}
+									name={'React Framework'}
+									link={'https://reactjs.org/'}
+								/>
 							</Grid>
 							<Grid item xs={12} md={3}>
-								<Paper>
-									<Grid
-										container
-										justify={'center'}
-										alignContent={'center'}
-										alignItems={'center'}
-										style={{ height: 150, padding: '5%' }}
-									>
-										<Grid item>
-											<NodeDisplay height={'100px'} width={'100%'} />
-										</Grid>
-										<Grid item xs={12}>
-											<Typography align={'center'}>
-												<Link href={'https://nodejs.org/en/about/'} target={'_blank'} rel={'noopener'} color={'textPrimary'}>
-													NodeJS
-												</Link>
-											</Typography>
-										</Grid>
-									</Grid>
-								</Paper>
-							</Grid>
-
-							<Grid item xs={12} md={3}>
-								<Paper>
-									<Grid
-										container
-										justify={'center'}
-										alignContent={'center'}
-										alignItems={'center'}
-										style={{ height: 150, padding: '5%' }}
-									>
-										<Grid item>
-											<PythonDisplay height={'100px'} width={'100%'} />
-										</Grid>
-										<Grid item xs={12}>
-											<Typography align={'center'}>
-												<Link href={'https://www.python.org/about/'} target={'_blank'} rel={'noopener'} color={'textPrimary'}>
-													Python
-												</Link>
-											</Typography>
-										</Grid>
-									</Grid>
-								</Paper>
+								<Technology
+									logo={<NodeDisplay height={'100px'} width={'100%'} />}
+									name={'NodeJS'}
+									link={'https://nodejs.org/en/about/'}
+								/>
 							</Grid>
 							<Grid item xs={12} md={3}>
-								<Paper>
-									<Grid
-										container
-										justify={'center'}
-										alignContent={'center'}
-										alignItems={'center'}
-										style={{ height: 150, padding: '5%' }}
-									>
-										<Grid item>
-											<KotlinDisplay height={'100px'} width={'100%'} />
-										</Grid>
-										<Grid item xs={12}>
-											<Typography align={'center'}>
-												<Link href={'https://kotlinlang.org/'} target={'_blank'} rel={'noopener'} color={'textPrimary'}>
-													Kotlin
-												</Link>
-											</Typography>
-										</Grid>
-									</Grid>
-								</Paper>
+								<Technology
+									logo={<PythonDisplay height={'100px'} width={'100%'} />}
+									name={'Python'}
+									link={'https://www.python.org/about/'}
+								/>
 							</Grid>
 							<Grid item xs={12} md={3}>
-								<Paper>
-									<Grid
-										container
-										justify={'center'}
-										alignContent={'center'}
-										alignItems={'center'}
-										style={{ height: 150, padding: '5%' }}
-									>
-										<Grid item>
-											<AndroidStudioDisplay height={'100px'} width={'170px'} />
-										</Grid>
-										<Grid item xs={12}>
-											<Typography align={'center'}>
-												<Link href={'https://developer.android.com/studio'} target={'_blank'} rel={'noopener'} color={'textPrimary'}>
-													Android Studio
-												</Link>
-											</Typography>
-										</Grid>
-									</Grid>
-								</Paper>
+								<Technology
+									logo={<KotlinDisplay height={'100px'} width={'100%'} />}
+									name={'Kotlin'}
+									link={'https://kotlinlang.org/'}
+								/>
 							</Grid>
 							<Grid item xs={12} md={3}>
-								<Paper>
-									<Grid
-										container
-										justify={'center'}
-										alignContent={'center'}
-										alignItems={'center'}
-										style={{ height: 150, padding: '5%' }}
-									>
-										<Grid item>
-											<CPPDisplay height={'100px'} width={'165px'} />
-										</Grid>
-										<Grid item xs={12}>
-											<Typography align={'center'}>
-												<Link href={'https://www.cplusplus.com/info/description/'} target={'_blank'} rel={'noopener'} color={'textPrimary'}>
-													C++
-												</Link>
-											</Typography>
-										</Grid>
-									</Grid>
-								</Paper>
+								<Technology
+									logo={<AndroidStudioDisplay height={'100px'} width={'170px'} />}
+									name={'Android Studio'}
+									link={'https://developer.android.com/studio'}
+								/>
+							</Grid>
+							<Grid item xs={12} md={3}>
+								<Technology
+									logo={<CPPDisplay height={'100px'} width={'165px'} />}
+									name={'C++'}
+									link={'https://www.cplusplus.com/info/description/'}
+								/>
 							</Grid>
 						</Grid>
 					</Grid>
 				</Grid>
-			</Grid>
+			</Grid >
 		},
 		{
 			hash: 'contact', zIndex: 1, background: 'rgba(0,0,0,1)', value: <Grid item xs={12} md={12}>

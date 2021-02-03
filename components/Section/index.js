@@ -1,4 +1,4 @@
-import { Grid } from "@material-ui/core"
+import { Grid } from "@material-ui/core";
 
 const Section = ({ background, hash, content, paddingTop = 60, paddingBottom = '4.5%', zIndex = 2 }) => {
     const styling = zIndex <= 2 ? {
@@ -42,4 +42,4 @@ const Section = ({ background, hash, content, paddingTop = 60, paddingBottom = '
     </section>
 }
 
-export default Section
+export default Section;

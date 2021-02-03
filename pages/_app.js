@@ -5,7 +5,7 @@ import Router from 'next/router';
 import { CssBaseline, ThemeProvider } from '@material-ui/core';
 import theme from '../components/Theme';
 import NProgress from 'nprogress';
-import '../styles/section.scss'
+import '../styles/section.scss';
 
 const MyApp = ({ Component, pageProps }) => {
 	React.useEffect(() => {
@@ -114,11 +114,11 @@ const MyApp = ({ Component, pageProps }) => {
 			</ThemeProvider>
 		</React.Fragment>
 	);
-}
+};
 
 MyApp.propTypes = {
 	Component: PropTypes.elementType.isRequired,
 	pageProps: PropTypes.object.isRequired,
 };
 
-export default MyApp
+export default MyApp;

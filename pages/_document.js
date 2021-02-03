@@ -1,7 +1,6 @@
-import React from 'react'
-import { ServerStyleSheets } from '@material-ui/core/styles'
-import Document, { Html, Head, Main, NextScript } from 'next/document'
-import theme from '../components/Theme'
+import React from 'react';
+import { ServerStyleSheets } from '@material-ui/core/styles';
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 
 export default class MyDocument extends Document {
     render() {
@@ -17,8 +16,8 @@ export default class MyDocument extends Document {
                 <NextScript />
             </body>
         </Html>
-    }
-}
+    };
+};
 
 MyDocument.getInitialProps = async (ctx) => {
     const sheets = new ServerStyleSheets();
