@@ -5,7 +5,7 @@ import Router from 'next/router';
 import { CssBaseline, ThemeProvider } from '@material-ui/core';
 import theme from '../components/Theme';
 import NProgress from 'nprogress';
-import '../styles/section.scss';
+import '../styles/global.scss';
 
 const MyApp = ({ Component, pageProps }) => {
 	React.useEffect(() => {
