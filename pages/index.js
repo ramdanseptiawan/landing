@@ -125,11 +125,11 @@ export default function Home() {
 												</Typography>
 											</Grid>
 										</Grid>
-										<Grid item xs={12} md={12}>
+										{/* <Grid item xs={12} md={12}>
 											<Button fullWidth variant={'outlined'} style={{ color: 'white', borderColor: 'white' }} onClick={() => Router.push('/jembatanku')}>
 												Explore
 											</Button>
-										</Grid>
+										</Grid> */}
 									</Grid>
 								</Grid>
 							</Grid>
