@@ -1,6 +1,7 @@
-import { Divider, Grid, Link, Paper, Typography } from '@material-ui/core';
+import { Divider, Grid, Link, Button, Typography } from '@material-ui/core';
 import Head from 'next/head';
 import Image from 'next/image';
+import Router from 'next/router';
 import React from 'react';
 import Section from '../components/Section';
 import TabList from '../components/TabList';
@@ -50,9 +51,14 @@ export default function Home() {
 					<Grid item xs={12} md={6}>
 						<Grid container>
 							<Grid item xs={12} md={12} style={{ padding: 10 }}>
-								<Typography variant={'h2'} align={'center'} style={{ fontSize: '3rem' }}>
+								<Typography align={'center'} variant={'h4'} component={'h3'} style={{
+									background: '-webkit-linear-gradient(-70deg, #23074d 0%, #cc5333 100%)',
+									WebkitBackgroundClip: 'text',
+									WebkitTextFillColor: 'transparent',
+									fontWeight: 'bolder'
+								}}>
 									Langgeng Cipta Solusi
-								</Typography>
+						</Typography>
 							</Grid>
 							<Grid item xs={12} md={12} style={{ padding: 10 }}>
 								<Typography align={'justify'}>
@@ -74,8 +80,13 @@ export default function Home() {
 					spacing={2}
 					style={{ minHeight: isLarge ? '100vh' : '100%' }}
 				>
-					<Grid item xs={12} md={12}>
-						<Typography align={'center'} variant={'h5'} component={'h3'} style={{ color: 'white' }}>
+					<Grid item>
+						<Typography align={'center'} variant={'h4'} component={'h3'} style={{
+							background: '-webkit-linear-gradient(-70deg, #BE93C5 0%, #7BC6CC 100%)',
+							WebkitBackgroundClip: 'text',
+							WebkitTextFillColor: 'transparent',
+							fontWeight: 'bolder'
+						}}>
 							Real time, Responsive, and Reliable.
 						</Typography>
 					</Grid>
@@ -114,11 +125,11 @@ export default function Home() {
 												</Typography>
 											</Grid>
 										</Grid>
-										{/* <Grid item xs={12} md={12}>
+										<Grid item xs={12} md={12}>
 											<Button fullWidth variant={'outlined'} style={{ color: 'white', borderColor: 'white' }} onClick={() => Router.push('/jembatanku')}>
 												Explore
 											</Button>
-										</Grid> */}
+										</Grid>
 									</Grid>
 								</Grid>
 							</Grid>
@@ -137,8 +148,15 @@ export default function Home() {
 					spacing={2}
 					style={{ minHeight: isLarge ? '100vh' : '100%' }}
 				>
-					<Grid item xs={12} md={12}>
-						<Typography align={'center'} variant={'h5'} component={'h3'}>Modern company requires modern solution.</Typography>
+					<Grid item>
+						<Typography align={'center'} variant={'h4'} component={'h3'} style={{
+							background: '-webkit-linear-gradient(-70deg, #23074d 0%, #cc5333 100%)',
+							WebkitBackgroundClip: 'text',
+							WebkitTextFillColor: 'transparent',
+							fontWeight: 'bolder'
+						}}>
+							Modern company requires modern solution.
+						</Typography>
 					</Grid>
 					<Grid item xs={12} md={12}>
 						<Typography align={'center'}>
@@ -223,8 +241,15 @@ export default function Home() {
 					alignItems={'center'}
 					style={{ minHeight: isLarge ? '100vh' : '100%' }}
 				>
-					<Grid item xs={12} md={12}>
-						<Typography align={'center'} style={{ color: 'white' }} variant={'h5'} component={'h3'}>Ready to make your robust production system? Get in touch with us!</Typography>
+					<Grid item>
+						<Typography align={'center'} variant={'h4'} component={'h3'} style={{
+							background: '-webkit-linear-gradient(-70deg, #BE93C5 0%, #7BC6CC 100%)',
+							WebkitBackgroundClip: 'text',
+							WebkitTextFillColor: 'transparent',
+							fontWeight: 'bolder'
+						}}>
+							Get in touch with us!
+						</Typography>
 					</Grid>
 					<Grid item xs={12} md={12} style={{ paddingTop: '5rem', paddingBottom: '5rem' }}>
 						<Grid
@@ -361,11 +386,27 @@ export default function Home() {
 					<Grid item xs={12} md={12}>
 						<LCSDisplay width={'100%'} height={150} fill={'#697bb8'} />
 					</Grid>
-					<Grid item style={{ maxWidth: 300, width: '100%', padding: 15 }}>
-						<Divider style={{ backgroundColor: 'white' }} />
+					<Grid item xs={12} md={12}>
+						<Grid
+							container
+							justify={'center'}
+							alignContent={'center'}
+							alignItems={'center'}
+						>
+							<Grid item style={{ maxWidth: 300, width: '100%', padding: 15 }}>
+								<Divider style={{ backgroundColor: 'white' }} />
+							</Grid>
+						</Grid>
 					</Grid>
-					<Grid item xs={12} md={12} >
-						<Typography variant={'h4'} component={'h1'} align={'center'} style={{ color: 'white' }}>Empowering the Future</Typography>
+					<Grid item >
+						<Typography align={'center'} variant={'h4'} component={'h1'} style={{
+							background: '-webkit-linear-gradient(-70deg, #FFEFBA 0%, #CFDEF3 100%)',
+							WebkitBackgroundClip: 'text',
+							WebkitTextFillColor: 'transparent',
+							fontWeight: 'bolder'
+						}}>
+							Empowering the Future
+						</Typography>
 					</Grid>
 				</Grid>
 			</Grid>}

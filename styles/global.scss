@@ -24,7 +24,8 @@ body {
     animation-iteration-count: infinite;
     $colors: (
       #697bb8,
-      #ffae00,
+      #ffbf00
+
     );
     @for $i from 1 through $amount {
       &:nth-child(#{$i}) {
