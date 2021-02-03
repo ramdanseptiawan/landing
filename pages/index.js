@@ -51,7 +51,7 @@ export default function Home() {
 					<Grid item xs={12} md={6}>
 						<Grid container>
 							<Grid item xs={12} md={12} style={{ padding: 10 }}>
-								<Typography align={'center'} variant={'h4'} component={'h3'} style={{
+								<Typography align={'center'} variant={'h4'} component={'h2'} style={{
 									background: '-webkit-linear-gradient(-70deg, #23074d 0%, #cc5333 100%)',
 									WebkitBackgroundClip: 'text',
 									WebkitTextFillColor: 'transparent',
@@ -81,7 +81,7 @@ export default function Home() {
 					style={{ minHeight: isLarge ? '100vh' : '100%' }}
 				>
 					<Grid item>
-						<Typography align={'center'} variant={'h4'} component={'h3'} style={{
+						<Typography align={'center'} variant={'h4'} component={'h2'} style={{
 							background: '-webkit-linear-gradient(-70deg, #BE93C5 0%, #7BC6CC 100%)',
 							WebkitBackgroundClip: 'text',
 							WebkitTextFillColor: 'transparent',
@@ -149,7 +149,7 @@ export default function Home() {
 					style={{ minHeight: isLarge ? '100vh' : '100%' }}
 				>
 					<Grid item>
-						<Typography align={'center'} variant={'h4'} component={'h3'} style={{
+						<Typography align={'center'} variant={'h4'} component={'h2'} style={{
 							background: '-webkit-linear-gradient(-70deg, #23074d 0%, #cc5333 100%)',
 							WebkitBackgroundClip: 'text',
 							WebkitTextFillColor: 'transparent',
@@ -242,7 +242,7 @@ export default function Home() {
 					style={{ minHeight: isLarge ? '100vh' : '100%' }}
 				>
 					<Grid item>
-						<Typography align={'center'} variant={'h4'} component={'h3'} style={{
+						<Typography align={'center'} variant={'h4'} component={'h2'} style={{
 							background: '-webkit-linear-gradient(-70deg, #BE93C5 0%, #7BC6CC 100%)',
 							WebkitBackgroundClip: 'text',
 							WebkitTextFillColor: 'transparent',
