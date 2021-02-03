@@ -12,7 +12,7 @@ export default class MyDocument extends Document {
                 <link rel="apple-touch-icon" href="/logo512.png" />
                 <link rel="manifest" href="/manifest.json" />
             </Head>
-            <body>
+            <body style={{ overflowX: 'hidden' }}>
                 <Main />
                 <NextScript />
             </body>

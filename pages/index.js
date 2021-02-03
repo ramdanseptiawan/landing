@@ -30,7 +30,7 @@ export default function Home() {
 
 	const contents = [
 		{
-			hash: 'about', background: null, value: <Grid item xs={12} md={12}>
+			hash: 'about', zIndex: 3, background: 'rgba(255,255,255,1)', value: <Grid item xs={12} md={12}>
 				<Grid
 					container
 					justify={'center'}
@@ -66,7 +66,7 @@ export default function Home() {
 			</Grid>
 		},
 		{
-			hash: 'product', background: 'linear-gradient(to bottom right, black, gray, gray)', value: <Grid item xs={12} md={12}>
+			hash: 'product', zIndex: 1, background: 'rgba(0,0,0,1)', value: <Grid item xs={12} md={12}>
 				<Grid
 					container
 					justify={'center'}
@@ -88,12 +88,12 @@ export default function Home() {
 					<Grid item xs={12} md={8}>
 						<Grid container>
 							<Grid item xs={12} md={12} style={{
-								backgroundAttachment: 'fixed',
-								backgroundRepeat: 'no-repeat',
-								backgroundSize: 'cover',
-								WebkitBackgroundSize: 'cover',
-								background: 'linear-gradient(to bottom right, black, black, gray)',
-								borderRadius: 25
+								background: 'rgba(255, 255, 255, 0.01)',
+								boxShadow: '0 8px 32px 0 rgba( 0, 0, 0, 0.37 )',
+								backdropFilter: 'blur( 4px )',
+								WebkitBackdropFilter: 'blur( 4px )',
+								borderRadius: '10px',
+								border: '1px solid rgba( 255, 255, 255, 0.18 )',
 							}}>
 								<Grid
 									container
@@ -102,9 +102,6 @@ export default function Home() {
 									alignItems={'center'}
 									style={{
 										padding: '5%',
-										backdropFilter: 'blur(150px)',
-										WebkitBackdropFilter: 'blur(150px)',
-										borderRadius: 25
 									}}
 								>
 									<Grid item item xs={12} md={6} style={{ height: '100%', padding: '5%' }}>
@@ -129,10 +126,10 @@ export default function Home() {
 						</Grid>
 					</Grid>
 				</Grid>
-			</Grid>
+			</Grid >
 		},
 		{
-			hash: 'technology', background: null, value: <Grid item xs={12} md={12}>
+			hash: 'technology', zIndex: 3, background: 'rgba(255,255,255,1)', value: <Grid item xs={12} md={12}>
 				<Grid
 					container
 					justify={'center'}
@@ -340,7 +337,7 @@ export default function Home() {
 			</Grid>
 		},
 		{
-			hash: 'contact', background: 'linear-gradient(to bottom right, gray, gray, black)', value: <Grid item xs={12} md={12}>
+			hash: 'contact', zIndex: 1, background: 'rgba(0,0,0,1)', value: <Grid item xs={12} md={12}>
 				<Grid
 					container
 					justify={'center'}
@@ -374,7 +371,7 @@ export default function Home() {
 										>
 											<Grid item>
 												<Typography align={'center'} style={{ color: 'white' }}>
-													<Link href={'tel:+62-22-4268728'} target={'_blank'} rel={'noopener'} style={{ color: 'white' }}>Phone: +62-22-4268728</Link>
+													<Link href={'tel:+62-22-4262728'} target={'_blank'} rel={'noopener'} style={{ color: 'white' }}>Phone: +62-22-4268728</Link>
 												</Typography>
 												<Typography align={'center'} style={{ color: 'white' }}>
 													<Link href={'tel:+62-22-4268730'} target={'_blank'} rel={'noopener'} style={{ color: 'white' }}>Fax: +62-22-4268730</Link>
@@ -421,7 +418,7 @@ export default function Home() {
 										>
 											<Grid item>
 												<Typography align={'center'}>
-													<Link href={'https://goo.gl/maps/tFQEnrTzepZJBEP36'} target={'_blank'} rel={'noopener'} style={{ color: 'white' }}>Jl. Cihampelas No. 2 Bandung, 40116, Jawa Barat, Indonesia</Link>
+													<Link href={'https://g.page/langgeng-cipta-solusi?gm'} target={'_blank'} rel={'noopener'} style={{ color: 'white' }}>Jl. Cihampelas No. 2 Bandung, 40116, Jawa Barat, Indonesia</Link>
 												</Typography>
 											</Grid>
 										</Grid>
@@ -438,10 +435,11 @@ export default function Home() {
 		},
 	];
 
-	return <>
+	return <div style={{ position: 'relative' }}>
 		<Head>
 			<title>PT. Langgeng Cipta Solusi - Empowering the Future</title>
 			<meta name="description" content="PT Langgeng Cipta Solusi (LCS) is an Indonesian IT solution based company, established in 2020, located in Bandung, West Java, Indonesia. We develop an end to end integrated real time online solutions focusing in monitoring and creating an early warning system." />
+			<meta name="keywords" content="PT. Langgeng Cipta Solusi, PT Langgeng Cipta Solusi, LCS Indonesia, lcsindonesia, empowering the future" />
 			<meta property="og:locale" content="en_US" />
 			<meta property="og:type" content="website" />
 			<meta property="og:title" content="PT. Langgeng Cipta Solusi - Empowering the Future" />
@@ -454,10 +452,25 @@ export default function Home() {
 			<meta name="twitter:image" content="https://lcsindonesia.com/logo512.png" />
 			<link rel="canonical" href="https://lcsindonesia.com/" />
 		</Head>
+		<div className={'background'}>
+			<span className={'sphere'}></span>
+			<span className={'sphere'}></span>
+			<span className={'sphere'}></span>
+			<span className={'sphere'}></span>
+			<span className={'sphere'}></span>
+			<span className={'sphere'}></span>
+			<span className={'sphere'}></span>
+			<span className={'sphere'}></span>
+			<span className={'sphere'}></span>
+			<span className={'sphere'}></span>
+			<span className={'sphere'}></span>
+			<span className={'sphere'}></span>
+		</div>
 		<Section
 			paddingTop={0}
 			paddingBottom={0}
-			background={'linear-gradient(to bottom right, black, black, gray)'}
+			zIndex={1}
+			background={'rgba(0,0,0,1)'}
 			hash={'welcome'}
 			content={<Grid item xs={12} md={12}>
 				<Grid
@@ -481,10 +494,11 @@ export default function Home() {
 		/>
 		<TabList sections={sections} />
 		{contents.map((content, index) => <Section
+			zIndex={content.zIndex}
 			key={index}
 			background={content.background}
 			hash={content.hash}
 			content={content.value}
 		/>)}
-	</>
+	</div>
 }
