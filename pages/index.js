@@ -90,6 +90,10 @@ export default function Home() {
 			<title>Langgeng Cipta Solusi - Empowering the Future</title>
 		</Head>
 		<NextSeo
+			additionalMetaTags={[{
+				name: 'keywords',
+				content: 'lcs, lcs indonesia, lcsindonesia, it solution, solution lcsindo, lcs indo, langgeng cipta, solusi, langgeng, langgeng cipta solusi, cipta, empowering the future, empowering, the future, jembatanku, shms, structural health monitoring system, structural health monitoring, integrated, integrated system'
+			}]}
 			title='Langgeng Cipta Solusi - Empowering the Future'
 			description='PT Langgeng Cipta Solusi (LCS) is an Indonesian IT solution based company, established in 2020, located in Bandung, West Java, Indonesia. We develop an end to end integrated real time on-line solutions focusing in monitoring and creating an early warning system. Supported by competent and dedicated multidiscipline R&D team, enable us to continuously improving our products to the latest trends and innovations.'
 			canonical='https://lcsindonesia.com/'
