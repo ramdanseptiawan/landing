@@ -73,3 +73,7 @@ div::-webkit-scrollbar-button {display:none}
 .nprogress-custom-parent #nprogress .bar {
     position: absolute;
 }
+
+p {
+    @apply text-gray-900
+}

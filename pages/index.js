@@ -60,7 +60,7 @@ const Card = ({ svg, title, description, status }) => {
 				if (instance) {
 					setActualHeight(instance.offsetHeight)
 				}
-			}} className={'bg-gradient-to-br from-gray-100 to-gray-300 w-full rounded-xl p-8 grid grid-cols-1 shadow ' + (description ? 'absolute' : '')}
+			}} className={'bg-gradient-to-br from-gray-100 to-gray-300 w-full rounded-xl p-8 grid grid-cols-1 shadow-2xl ' + (description ? 'absolute' : '')}
 				style={{ opacity: opacity.interpolate(o => 1 - o), WebkitTransform: transform, transform }} >
 				{svg}
 				<p className={'text-lg font-semibold text-center'}>
@@ -72,7 +72,7 @@ const Card = ({ svg, title, description, status }) => {
 			</animated.div>
 
 			{description ?
-				<animated.div className={'bg-gradient-to-br from-gray-100 to-gray-300 rounded-xl p-4 flex h-full w-full relative'}
+				<animated.div className={'bg-gradient-to-br from-gray-100 to-gray-300 rounded-xl p-4 flex h-full shadow-2xl w-full relative'}
 					style={{
 						height: actualHeight, opacity, transform: transform.interpolate(t => `${t} rotateX(180deg)`),
 						WebkitTransform: transform.interpolate(t => `${t} rotateX(180deg)`)
@@ -146,10 +146,10 @@ export default function Home() {
 					<div className={'relative grid grid-cols-2'}>
 						<div className={'col-span-2 md:col-span-1 flex flex-wrap content-center items-center gap-4 p-6'}>
 							<div className={'mx-auto space-y-6'}>
-								<h2 className="text-5xl leading-none font-extrabold text-gray-100 tracking-tight mb-8">
+								<h2 className="text-5xl text-center md:text-left leading-none font-extrabold text-gray-100 tracking-tight mb-8">
 									Langgeng Cipta Solusi
 								</h2>
-								<p className={'text-gray-300 text-lg text-justify font-medium sm:leading-10 mx-auto mb-6'}>
+								<p className={'text-gray-200 text-lg text-justify font-medium sm:leading-10 mx-auto mb-6'}>
 									PT Langgeng Cipta Solusi (LCS) is an Indonesian IT solution based company, established in 2020, located in Bandung, West Java, Indonesia. We develop an end to end integrated real time on-line solutions focusing in monitoring and creating an early warning system. Supported by competent and dedicated multidiscipline R&D team, enable us to continuously improving our products to the latest trends and innovations.
 								</p>
 							</div>
@@ -159,12 +159,12 @@ export default function Home() {
 						</div>
 					</div>
 				</section>
-				<section className={'min-h-screen z-30 relative gap-6 flex flex-col content-center items-center py-0 px-0 md:py-4 md:px-24'}>
+				<section className={'min-h-screen z-30 relative flex flex-col content-center items-center py-0 px-0 md:py-4 md:px-24'}>
 					<div className={'w-full p-6'}>
-						<h3 className="text-5xl leading-none font-extrabold text-gray-900 tracking-tight mb-8">
+						<h3 className="text-5xl leading-none text-center md:text-left font-extrabold text-gray-900 tracking-tight mb-8">
 							Our Solution.
 						</h3>
-						<p className={'text-lg sm:text-2xl font-medium sm:leading-10 space-y-6 mb-6 text-gray-500'}>
+						<p className={'text-lg sm:text-2xl text-center md:text-left font-medium sm:leading-10 space-y-6 mb-6 text-gray-500'}>
 							We provides the best solution.
 					</p>
 					</div>
@@ -198,12 +198,12 @@ export default function Home() {
 						</div>
 					</div>
 				</section>
-				<section className={'min-h-screen z-30 relative gap-6 flex flex-col content-center items-center py-0 px-0 md:py-4 md:px-24'}>
+				<section className={'min-h-screen z-30 relative flex flex-col content-center items-center py-0 px-0 md:py-4 md:px-24'}>
 					<div className={'w-full p-6'}>
-						<h3 className="text-5xl text-right leading-none font-extrabold text-gray-900 tracking-tight mb-8">
+						<h3 className="text-5xl text-center md:text-right leading-none font-extrabold text-gray-900 tracking-tight mb-8">
 							Products.
 						</h3>
-						<p className={'text-right text-lg sm:text-2xl font-medium sm:leading-10 mb-6 text-gray-500'}>
+						<p className={'text-center md:text-right text-lg sm:text-2xl font-medium sm:leading-10 mb-6 text-gray-500'}>
 							We focus on predictive maintenance for every product we've made.
 						</p>
 					</div>
@@ -246,12 +246,12 @@ export default function Home() {
 						</div>
 					</div>
 				</section>
-				<section className={'min-h-screen z-30 relative gap-6 flex flex-col content-center items-center py-0 px-0 md:py-4 md:px-24'}>
+				<section className={'min-h-screen z-30 relative flex flex-col content-center items-center py-0 px-0 md:py-4 md:px-24'}>
 					<div className={'w-full p-6'}>
-						<h3 className="text-5xl leading-none font-extrabold text-gray-900 tracking-tight mb-8">
+						<h3 className="text-5xl text-center md:text-left leading-none font-extrabold text-gray-900 tracking-tight mb-8">
 							Technology.
 						</h3>
-						<p className={'text-lg sm:text-2xl font-medium sm:leading-10 mb-6 text-gray-500'}>
+						<p className={'text-lg text-center md:text-left sm:text-2xl font-medium sm:leading-10 mb-6 text-gray-500'}>
 							In order to implement a robust production plans and easier maintenance process, we use the full-stack MERN Solution and other reliable programming language.
 						</p>
 					</div>
@@ -311,7 +311,7 @@ export default function Home() {
 				</div>
 				<div className="relative flex-1 min-w-full min-h-full">
 					<div className={'relative md:absolute flex min-h-full min-w-full'}>
-						<div className={'flex-grow m-auto px-20 py-12 md:py-0 sm:px-12'}>
+						<div className={'flex-grow m-auto p-6'}>
 							<div className={'grid grid-cols-1 md:grid-cols-3 gap-10'}>
 								<figure>
 									<svg fill={'rgb(17, 24, 39)'} className={'mx-auto w-24 h-24'} focusable="false" viewBox="0 0 24 24" aria-hidden="true" tabIndex="-1" title="PhoneIphone" data-ga-event-category="material-icons" data-ga-event-action="click" data-ga-event-label="PhoneIphone"><path d="M15.5 1h-8C6.12 1 5 2.12 5 3.5v17C5 21.88 6.12 23 7.5 23h8c1.38 0 2.5-1.12 2.5-2.5v-17C18 2.12 16.88 1 15.5 1zm-4 21c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4.5-4H7V4h9v14z"></path></svg>
