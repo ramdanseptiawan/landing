@@ -19,8 +19,6 @@ import Head from 'next/head';
 import Globe from '../components/globe'
 import Networking from '../components/networking'
 import { useSpring, animated } from 'react-spring'
-
-const calc = (x, y) => [-(y - window.innerHeight / 2) / 20, (x - window.innerWidth / 2) / 20, 1.1]
 const trans = (x, y, s) => `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
 
 const Card = ({ svg, title, description, status }) => {
@@ -34,9 +32,23 @@ const Card = ({ svg, title, description, status }) => {
 	const [props, set] = useSpring(() => ({ xys: [0, 0, 1], config: { mass: 5, tension: 350, friction: 40 } }))
 	return (
 		<animated.figure
-			onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
+			onMouseOver={() => set({ xys: [0, 0, 1.15] })}
 			onMouseLeave={() => set({ xys: [0, 0, 1] })}
-			style={{ transform: props.xys.interpolate(trans) }}
+			onTouchStart={(e) => {
+				e.preventDefault()
+				set({ xys: [0, 0, 1.15] })
+				if (description) {
+					setFlipped(state => !state)
+				}
+			}}
+			onTouchEnd={(e) => {
+				e.preventDefault()
+				set({ xys: [0, 0, 1] })
+				if (description) {
+					setFlipped(state => !state)
+				}
+			}}
+			style={{ transform: props.xys.interpolate(trans), WebkitTransform: props.xys.interpolate(trans) }}
 			onClick={() => {
 				if (description) {
 					setFlipped(state => !state)
@@ -48,7 +60,8 @@ const Card = ({ svg, title, description, status }) => {
 				if (instance) {
 					setActualHeight(instance.offsetHeight)
 				}
-			}} className={'bg-gradient-to-br from-gray-100 to-gray-300 w-full rounded-xl p-8 grid grid-cols-1 shadow ' + (description ? 'absolute' : '')} style={{ opacity: opacity.interpolate(o => 1 - o), transform }} >
+			}} className={'bg-gradient-to-br from-gray-100 to-gray-300 w-full rounded-xl p-8 grid grid-cols-1 shadow ' + (description ? 'absolute' : '')}
+				style={{ opacity: opacity.interpolate(o => 1 - o), WebkitTransform: transform, transform }} >
 				{svg}
 				<p className={'text-lg font-semibold text-center'}>
 					{title}
@@ -59,7 +72,11 @@ const Card = ({ svg, title, description, status }) => {
 			</animated.div>
 
 			{description ?
-				<animated.div className={'bg-gradient-to-br from-gray-100 to-gray-300 rounded-xl p-4 flex h-full w-full relative'} style={{ height: actualHeight, opacity, transform: transform.interpolate(t => `${t} rotateX(180deg)`) }} >
+				<animated.div className={'bg-gradient-to-br from-gray-100 to-gray-300 rounded-xl p-4 flex h-full w-full relative'}
+					style={{
+						height: actualHeight, opacity, transform: transform.interpolate(t => `${t} rotateX(180deg)`),
+						WebkitTransform: transform.interpolate(t => `${t} rotateX(180deg)`)
+					}} >
 					<div className={'flex-grow m-auto overflow-y-auto max-h-full'}>
 						<div className={'grid grid-cols-1'}>
 							<p className={'text-center font-medium'}>{description}</p>
@@ -88,7 +105,7 @@ export default function Home() {
 				],
 			}}
 		/>
-		<div className={'relative'}>
+		<div className={'relative select-none'}>
 			{/* <nav style={{ zIndex: 166782760 }} className={'fixed w-full gap-12 overflow-x-auto flex flex-row bg-gray-100 shadow align-middle py-4 px-12'}>
 			<div className={'flex-grow'}>
 				<LCSLogo fill={'#697bb8'} className={'h-6'} />
