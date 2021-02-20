@@ -1,13 +1,11 @@
-module.exports = {
+const withTM = require('next-transpile-modules')(['@react-three/drei', 'three'])
+module.exports = withTM({
     webpack(config) {
         config.module.rules.push({
             test: /\.svg$/,
-            issuer: {
-                test: /\.(js|ts)x?$/,
-            },
-            use: ['@svgr/webpack', 'url-loader'],
+            use: ['@svgr/webpack'],
         });
 
         return config;
-    },
-};
+    }
+})

@@ -1,423 +1,335 @@
-import { Divider, Grid, Link, Button, Typography } from '@material-ui/core';
+import React from 'react'
+import { NextSeo } from 'next-seo';
+import JembatankuLogo from '../assets/Logo/jembatanku.svg';
+// import LCSLogo from '../assets/Logo/lcs.svg';
+import AndroidStudioLogo from '../assets/Logo/androidStudio.svg';
+import CPPLogo from '../assets/Logo/cpp.svg';
+import MongoLogo from '../assets/Logo/mongo.svg';
+import ExpressLogo from '../assets/Logo/expressjs.svg';
+import ReactLogo from '../assets/Logo/react.svg';
+import NodeLogo from '../assets/Logo/nodejs.svg';
+import KotlinLogo from '../assets/Logo/kotlin.svg';
+import PythonLogo from '../assets/Logo/python.svg';
+
+import WIMLogo from '../assets/Logo/wim.svg';
+import LandslideLogo from '../assets/Logo/landslide.svg';
+import SmartFarmingLogo from '../assets/Logo/smartfarming.svg';
+
 import Head from 'next/head';
-import Image from 'next/image';
-import Router from 'next/router';
-import React from 'react';
-import Section from '../components/Section';
-import TabList from '../components/TabList';
-import Technology from '../components/Technology';
-import { Email, LocationOn, PhoneIphone } from '@material-ui/icons';
-import { ReactComponent as JembatankuDisplay } from '../assets/Logo/jembatanku.svg';
-import { ReactComponent as LCSDisplay } from '../assets/Logo/lcs.svg';
-import { ReactComponent as AndroidStudioDisplay } from '../assets/Logo/androidStudio.svg';
-import { ReactComponent as CPPDisplay } from '../assets/Logo/cpp.svg';
-import { ReactComponent as MongoDisplay } from '../assets/Logo/mongo.svg';
-import { ReactComponent as ExpressDisplay } from '../assets/Logo/expressjs.svg';
-import { ReactComponent as ReactDisplay } from '../assets/Logo/react.svg';
-import { ReactComponent as NodeDisplay } from '../assets/Logo/nodejs.svg';
-import { ReactComponent as KotlinDisplay } from '../assets/Logo/kotlin.svg';
-import { ReactComponent as PythonDisplay } from '../assets/Logo/python.svg';
+import Globe from '../components/globe'
+import Networking from '../components/networking'
+import { useSpring, animated } from 'react-spring'
+
+const calc = (x, y) => [-(y - window.innerHeight / 2) / 20, (x - window.innerWidth / 2) / 20, 1.1]
+const trans = (x, y, s) => `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
+
+const Card = ({ svg, title, description, status }) => {
+	const [flipped, setFlipped] = React.useState(false)
+	const { transform, opacity } = useSpring({
+		opacity: flipped ? 1 : 0,
+		transform: `perspective(600px) rotateX(${flipped ? 180 : 0}deg)`,
+		config: { mass: 5, tension: 500, friction: 80 }
+	})
+	const [actualHeight, setActualHeight] = React.useState(0)
+	const [props, set] = useSpring(() => ({ xys: [0, 0, 1], config: { mass: 5, tension: 350, friction: 40 } }))
+	return (
+		<animated.figure
+			onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
+			onMouseLeave={() => set({ xys: [0, 0, 1] })}
+			style={{ transform: props.xys.interpolate(trans) }}
+			onClick={() => {
+				if (description) {
+					setFlipped(state => !state)
+				}
+			}}
+			className={'relative'}
+		>
+			<animated.div ref={(instance) => {
+				if (instance) {
+					setActualHeight(instance.offsetHeight)
+				}
+			}} className={'bg-gradient-to-br from-gray-100 to-gray-300 w-full rounded-xl p-8 grid grid-cols-1 shadow ' + (description ? 'absolute' : '')} style={{ opacity: opacity.interpolate(o => 1 - o), transform }} >
+				{svg}
+				<p className={'text-lg font-semibold text-center'}>
+					{title}
+				</p>
+				<p className={'text-lg font-medium text-center ' + (status === 'Released' ? 'text-green-700' : 'text-purple-500')}>
+					{status}
+				</p>
+			</animated.div>
+
+			{description ?
+				<animated.div className={'bg-gradient-to-br from-gray-100 to-gray-300 rounded-xl p-4 flex h-full w-full relative'} style={{ height: actualHeight, opacity, transform: transform.interpolate(t => `${t} rotateX(180deg)`) }} >
+					<div className={'flex-grow m-auto overflow-y-auto max-h-full'}>
+						<div className={'grid grid-cols-1'}>
+							<p className={'text-center font-medium'}>{description}</p>
+						</div>
+					</div>
+				</animated.div> : null}
+		</animated.figure>
+	)
+}
 
 export default function Home() {
-	const isLarge = true
-	const sections = [
-		{ label: 'Welcome', hash: 'welcome' },
-		{ label: 'About', hash: 'about' },
-		{ label: 'Product', hash: 'product' },
-		{ label: 'Technology', hash: 'technology' },
-		{ label: 'Contact Us', hash: 'contact' },
-	];
-
-	const contents = [
-		{
-			hash: 'about', zIndex: 3, background: 'rgba(255,255,255,1)', value: <Grid item xs={12} md={12}>
-				<Grid
-					container
-					justify={'center'}
-					alignContent={'center'}
-					alignItems={'center'}
-					style={{ minHeight: isLarge ? '100vh' : '100%' }}
-				>
-					<Grid item xs={12} md={6} style={{ padding: '5%' }}>
-						<Image
-							layout={'responsive'}
-							width={'100%'}
-							height={'100%'}
-							objectFit={'contain'}
-							src={'/meeting.jpg'}
-							alt={'Kantor PT. Langgeng Cipta Solusi'}
-						/>
-					</Grid>
-					<Grid item xs={12} md={6}>
-						<Grid container>
-							<Grid item xs={12} md={12} style={{ padding: 10 }}>
-								<Typography align={'center'} variant={'h4'} component={'h2'} style={{
-									background: '-webkit-linear-gradient(-70deg, #23074d 0%, #cc5333 100%)',
-									WebkitBackgroundClip: 'text',
-									WebkitTextFillColor: 'transparent',
-									fontWeight: 'bolder'
-								}}>
-									Langgeng Cipta Solusi
-						</Typography>
-							</Grid>
-							<Grid item xs={12} md={12} style={{ padding: 10 }}>
-								<Typography align={'justify'}>
-									PT Langgeng Cipta Solusi (LCS) is an Indonesian IT solution based company, established in 2020, located in Bandung, West Java, Indonesia. We develop an end to end integrated real time on-line solutions focusing in monitoring and creating an early warning system. Supported by competent and dedicated multidiscipline R&D team, enable us to continuously improving our products to the latest trends and innovations. Our objectives and motivations are always to create products that empower our customers to reach their goals as well as giving benefit to all stake holders.
-								</Typography>
-							</Grid>
-						</Grid>
-					</Grid>
-				</Grid>
-			</Grid>
-		},
-		{
-			hash: 'product', zIndex: 1, background: 'rgba(0,0,0,1)', value: <Grid item xs={12} md={12}>
-				<Grid
-					container
-					justify={'center'}
-					alignContent={'center'}
-					alignItems={'center'}
-					spacing={2}
-					style={{ minHeight: isLarge ? '100vh' : '100%' }}
-				>
-					<Grid item>
-						<Typography align={'center'} variant={'h4'} component={'h2'} style={{
-							background: '-webkit-linear-gradient(-70deg, #BE93C5 0%, #7BC6CC 100%)',
-							WebkitBackgroundClip: 'text',
-							WebkitTextFillColor: 'transparent',
-							fontWeight: 'bolder'
-						}}>
-							Real time, Responsive, and Reliable.
-						</Typography>
-					</Grid>
-					<Grid item xs={12} md={12}>
-						<Typography align={'center'} style={{ color: 'white' }}>
-							Every product we made designed for multiple devices to be accessed wherever and whenever with real time updates.
-						</Typography>
-					</Grid>
-					<Grid item xs={12} md={8}>
-						<Grid container>
-							<Grid item xs={12} md={12} style={{
-								background: 'rgba(255, 255, 255, 0.3)',
-								boxShadow: '0 8px 32px 0 rgba( 0, 0, 0, 0.37 )',
-								backdropFilter: 'blur( 4px )',
-								WebkitBackdropFilter: 'blur( 4px )',
-								borderRadius: '10px',
-								border: '1px solid rgba( 255, 255, 255, 0.18 )',
-							}}>
-								<Grid
-									container
-									justify={'center'}
-									alignContent={'center'}
-									alignItems={'center'}
-									style={{
-										padding: '5%',
-									}}
-								>
-									<Grid item item xs={12} md={6} style={{ height: '100%', padding: '5%' }}>
-										<JembatankuDisplay width={'100%'} height={'100%'} fill={'#ffffff'} />
-									</Grid>
-									<Grid item xs={12} md={6} style={{ height: '100%' }}>
-										<Grid container spacing={2}>
-											<Grid item xs={12} md={12} style={{ maxHeight: '50vh', overflow: 'auto' }}>
-												<Typography align={'justify'} style={{ color: 'white' }}>
-													JembatanKu is an Indonesia domestic product in the form of an integrated system which is built and developed to provide an early alerting and health monitoring system for bridges in real time.
-												</Typography>
-											</Grid>
-										</Grid>
-										{/* <Grid item xs={12} md={12}>
-											<Button fullWidth variant={'outlined'} style={{ color: 'white', borderColor: 'white' }} onClick={() => Router.push('/jembatanku')}>
-												Explore
-											</Button>
-										</Grid> */}
-									</Grid>
-								</Grid>
-							</Grid>
-						</Grid>
-					</Grid>
-				</Grid>
-			</Grid >
-		},
-		{
-			hash: 'technology', zIndex: 3, background: 'rgba(255,255,255,1)', value: <Grid item xs={12} md={12}>
-				<Grid
-					container
-					justify={'center'}
-					alignContent={'center'}
-					alignItems={'center'}
-					spacing={2}
-					style={{ minHeight: isLarge ? '100vh' : '100%' }}
-				>
-					<Grid item>
-						<Typography align={'center'} variant={'h4'} component={'h2'} style={{
-							background: '-webkit-linear-gradient(-70deg, #23074d 0%, #cc5333 100%)',
-							WebkitBackgroundClip: 'text',
-							WebkitTextFillColor: 'transparent',
-							fontWeight: 'bolder'
-						}}>
-							Modern company requires modern solution.
-						</Typography>
-					</Grid>
-					<Grid item xs={12} md={12}>
-						<Typography align={'center'}>
-							In order to implement a robust production plans and easier maintenance process, we use the full-stack <Link color={'textPrimary'} href={'https://www.mongodb.com/mern-stack'} target={'_blank'} rel={'noopener'}>MERN Solution</Link> and other reliable programming language.
-						</Typography>
-					</Grid>
-					<Grid item xs={12} md={12} style={{ paddingLeft: '10%', paddingRight: '10%', paddingTop: '2.5%' }}>
-						<Grid
-							container
-							justify={'center'}
-							alignContent={'center'}
-							alignItems={'center'}
-							spacing={5}
-						>
-							<Grid item xs={12} md={3}>
-								<Technology
-									logo={<MongoDisplay height={'100px'} width={'100%'} />}
-									name={'MongoDB'}
-									link={'https://www.mongodb.com/'}
-								/>
-							</Grid>
-							<Grid item xs={12} md={3}>
-								<Technology
-									logo={<ExpressDisplay height={'100px'} width={'100%'} />}
-									name={'Express.js'}
-									link={'https://expressjs.com/'}
-								/>
-							</Grid>
-							<Grid item xs={12} md={3}>
-								<Technology
-									logo={<ReactDisplay height={'100px'} width={'100%'} />}
-									name={'React Framework'}
-									link={'https://reactjs.org/'}
-								/>
-							</Grid>
-							<Grid item xs={12} md={3}>
-								<Technology
-									logo={<NodeDisplay height={'100px'} width={'100%'} />}
-									name={'NodeJS'}
-									link={'https://nodejs.org/en/about/'}
-								/>
-							</Grid>
-							<Grid item xs={12} md={3}>
-								<Technology
-									logo={<PythonDisplay height={'100px'} width={'100%'} />}
-									name={'Python'}
-									link={'https://www.python.org/about/'}
-								/>
-							</Grid>
-							<Grid item xs={12} md={3}>
-								<Technology
-									logo={<KotlinDisplay height={'100px'} width={'100%'} />}
-									name={'Kotlin'}
-									link={'https://kotlinlang.org/'}
-								/>
-							</Grid>
-							<Grid item xs={12} md={3}>
-								<Technology
-									logo={<AndroidStudioDisplay height={'100px'} width={'170px'} />}
-									name={'Android Studio'}
-									link={'https://developer.android.com/studio'}
-								/>
-							</Grid>
-							<Grid item xs={12} md={3}>
-								<Technology
-									logo={<CPPDisplay height={'100px'} width={'165px'} />}
-									name={'C++'}
-									link={'https://www.cplusplus.com/info/description/'}
-								/>
-							</Grid>
-						</Grid>
-					</Grid>
-				</Grid>
-			</Grid >
-		},
-		{
-			hash: 'contact', zIndex: 1, background: 'rgba(0,0,0,1)', value: <Grid item xs={12} md={12}>
-				<Grid
-					container
-					justify={'center'}
-					alignContent={'center'}
-					alignItems={'center'}
-					style={{ minHeight: isLarge ? '100vh' : '100%' }}
-				>
-					<Grid item>
-						<Typography align={'center'} variant={'h4'} component={'h2'} style={{
-							background: '-webkit-linear-gradient(-70deg, #BE93C5 0%, #7BC6CC 100%)',
-							WebkitBackgroundClip: 'text',
-							WebkitTextFillColor: 'transparent',
-							fontWeight: 'bolder'
-						}}>
-							Get in touch with us!
-						</Typography>
-					</Grid>
-					<Grid item xs={12} md={12} style={{ paddingTop: '5rem', paddingBottom: '5rem' }}>
-						<Grid
-							container
-							style={{ minHeight: '100%' }}
-							justify={'center'}
-							alignContent={'center'}
-							alignItems={'center'}
-						>
-							<Grid item xs={12} md={4} style={{ padding: 25 }}>
-								<Grid container>
-									<Grid item xs={4} md={12}>
-										<PhoneIphone style={{ width: '100%', color: 'white', fontSize: '7rem' }} />
-									</Grid>
-									<Grid item xs={8} md={12}>
-										<Grid
-											container
-											style={{ minHeight: '100%' }}
-											justify={'center'}
-											alignContent={'center'}
-											alignItems={'center'}
-										>
-											<Grid item>
-												<Typography align={'center'} style={{ color: 'white' }}>
-													<Link href={'tel:+62-22-4262728'} target={'_blank'} rel={'noopener'} style={{ color: 'white' }}>Phone: +62-22-4268728</Link>
-												</Typography>
-												<Typography align={'center'} style={{ color: 'white' }}>
-													<Link href={'tel:+62-22-4268730'} target={'_blank'} rel={'noopener'} style={{ color: 'white' }}>Fax: +62-22-4268730</Link>
-												</Typography>
-											</Grid>
-										</Grid>
-									</Grid>
-								</Grid>
-							</Grid>
-							<Grid item xs={12} md={4} style={{ padding: 25 }}>
-								<Grid container>
-									<Grid item xs={4} md={12}>
-										<Email style={{ width: '100%', color: 'white', fontSize: '7rem' }} />
-									</Grid>
-									<Grid item xs={8} md={12}>
-										<Grid
-											container
-											style={{ minHeight: '100%' }}
-											justify={'center'}
-											alignContent={'center'}
-											alignItems={'center'}
-										>
-											<Grid item>
-												<Typography align={'center'}>
-													<Link href={'mailto:cs@langgengciptasolusi.com'} target={'_blank'} rel={'noopener'} style={{ color: 'white' }}>Customer Service</Link>
-												</Typography>
-											</Grid>
-										</Grid>
-									</Grid>
-								</Grid>
-							</Grid>
-							<Grid item xs={12} md={4} style={{ padding: 25 }}>
-								<Grid container>
-									<Grid item xs={4} md={12}>
-										<LocationOn style={{ width: '100%', color: 'white', fontSize: '7rem' }} />
-									</Grid>
-									<Grid item xs={8} md={12}>
-										<Grid
-											container
-											style={{ minHeight: '100%' }}
-											justify={'center'}
-											alignContent={'center'}
-											alignItems={'center'}
-										>
-											<Grid item>
-												<Typography align={'center'}>
-													<Link href={'https://g.page/langgeng-cipta-solusi?gm'} target={'_blank'} rel={'noopener'} style={{ color: 'white' }}>Jl. Cihampelas No. 2 Bandung, 40116, Jawa Barat, Indonesia</Link>
-												</Typography>
-											</Grid>
-										</Grid>
-									</Grid>
-								</Grid>
-							</Grid>
-						</Grid>
-					</Grid>
-					<Grid item xs={12} md={12}>
-						<Typography align={'center'} variant={'subtitle2'} component={'div'} style={{ color: 'white' }}>PT. Langgeng Cipta Solusi &copy; {new Date().getFullYear()}</Typography>
-					</Grid>
-				</Grid>
-			</Grid>
-		},
-	];
-
-	return <div style={{ position: 'relative' }}>
+	return <>
 		<Head>
-			<title>PT. Langgeng Cipta Solusi - Empowering the Future</title>
-			<meta name="description" content="PT Langgeng Cipta Solusi (LCS) is an Indonesian IT solution based company, established in 2020, located in Bandung, West Java, Indonesia. We develop an end to end integrated real time online solutions focusing in monitoring and creating an early warning system." />
-			<meta name="keywords" content="PT. Langgeng Cipta Solusi, PT Langgeng Cipta Solusi, LCS Indonesia, lcsindonesia, empowering the future" />
-			<meta property="og:locale" content="en_US" />
-			<meta property="og:type" content="website" />
-			<meta property="og:title" content="PT. Langgeng Cipta Solusi - Empowering the Future" />
-			<meta property="og:description" content="PT Langgeng Cipta Solusi (LCS) is an Indonesian IT solution based company, established in 2020, located in Bandung, West Java, Indonesia. We develop an end to end integrated real time online solutions focusing in monitoring and creating an early warning system." />
-			<meta property="og:url" content="https://lcsindonesia.com/" />
-			<meta property="og:site name" content="PT. Langgeng Cipta Solusi - Empowering the Future" />
-			<meta name="twitter:card" content="summary" />
-			<meta name="twitter:description" content="PT Langgeng Cipta Solusi (LCS) is an Indonesian IT solution based company, established in 2020, located in Bandung, West Java, Indonesia. We develop an end to end integrated real time online solutions focusing in monitoring and creating an early warning system." />
-			<meta name="twitter:title" content="PT. Langgeng Cipta Solusi - Empowering the Future" />
-			<meta name="twitter:image" content="https://lcsindonesia.com/logo512.png" />
-			<link rel="canonical" href="https://lcsindonesia.com/" />
+			<title>Langgeng Cipta Solusi - Empowering the Future</title>
 		</Head>
-		<div className={'background'}>
-			<span className={'sphere'}></span>
-			<span className={'sphere'}></span>
-			<span className={'sphere'}></span>
-			<span className={'sphere'}></span>
-			<span className={'sphere'}></span>
-			<span className={'sphere'}></span>
-			<span className={'sphere'}></span>
-			<span className={'sphere'}></span>
-			<span className={'sphere'}></span>
-			<span className={'sphere'}></span>
-			<span className={'sphere'}></span>
-			<span className={'sphere'}></span>
-		</div>
-		<Section
-			paddingTop={0}
-			paddingBottom={0}
-			zIndex={1}
-			background={'rgba(0,0,0,1)'}
-			hash={'welcome'}
-			content={<Grid item xs={12} md={12}>
-				<Grid
-					container
-					justify={'center'}
-					alignContent={'center'}
-					alignItems={'center'}
-					style={{ minHeight: 'calc(100vh - 48px)' }}
-				>
-					<Grid item xs={12} md={12}>
-						<LCSDisplay width={'100%'} height={150} fill={'#697bb8'} />
-					</Grid>
-					<Grid item xs={12} md={12}>
-						<Grid
-							container
-							justify={'center'}
-							alignContent={'center'}
-							alignItems={'center'}
-						>
-							<Grid item style={{ maxWidth: 300, width: '100%', padding: 15 }}>
-								<Divider style={{ backgroundColor: 'white' }} />
-							</Grid>
-						</Grid>
-					</Grid>
-					<Grid item >
-						<Typography align={'center'} variant={'h4'} component={'h1'} style={{
-							background: '-webkit-linear-gradient(-70deg, #FFEFBA 0%, #CFDEF3 100%)',
-							WebkitBackgroundClip: 'text',
-							WebkitTextFillColor: 'transparent',
-							fontWeight: 'bolder'
-						}}>
-							Empowering the Future
-						</Typography>
-					</Grid>
-				</Grid>
-			</Grid>}
+		<NextSeo
+			title='Langgeng Cipta Solusi - Empowering the Future'
+			description='PT Langgeng Cipta Solusi (LCS) is an Indonesian IT solution based company, established in 2020, located in Bandung, West Java, Indonesia. We develop an end to end integrated real time on-line solutions focusing in monitoring and creating an early warning system. Supported by competent and dedicated multidiscipline R&D team, enable us to continuously improving our products to the latest trends and innovations.'
+			canonical='https://lcsindonesia.com/'
+			openGraph={{
+				url: 'https://lcsindonesia.com/',
+				title: 'Langgeng Cipta Solusi - Empowering the Future',
+				description: 'PT Langgeng Cipta Solusi (LCS) is an Indonesian IT solution based company, established in 2020, located in Bandung, West Java, Indonesia. We develop an end to end integrated real time on-line solutions focusing in monitoring and creating an early warning system. Supported by competent and dedicated multidiscipline R&D team, enable us to continuously improving our products to the latest trends and innovations.',
+				images: [
+					{ url: 'https://lcsindonesia.com/logo512.png' },
+				],
+			}}
 		/>
-		<TabList sections={sections} />
-		{contents.map((content, index) => <Section
-			zIndex={content.zIndex}
-			key={index}
-			background={content.background}
-			hash={content.hash}
-			content={content.value}
-		/>)}
-	</div>
+		<div className={'relative'}>
+			{/* <nav style={{ zIndex: 166782760 }} className={'fixed w-full gap-12 overflow-x-auto flex flex-row bg-gray-100 shadow align-middle py-4 px-12'}>
+			<div className={'flex-grow'}>
+				<LCSLogo fill={'#697bb8'} className={'h-6'} />
+			</div>
+			<p className={'m-auto'}>
+				About
+				</p>
+			<p className={'m-auto'}>
+				Why Us
+			</p>
+			<p className={'m-auto'}>
+				Product
+			</p>
+			<p className={'m-auto'}>
+				Technology
+			</p>
+			<p className={'m-auto'}>
+				Contact
+			</p>
+		</nav> */}
+			<section className={'min-h-screen relative gap-6 flex flex-col content-center items-center bg-black'}>
+				<div className={'fixed z-10 flex h-full w-full'}>
+					<Globe />
+				</div>
+				<div className={'absolute z-20 w-full h-screen m-auto'} style={{ WebkitBackdropFilter: 'blur(5px)', backdropFilter: 'blur(5px)' }}></div>
+				<div className="relative z-30 flex-1 min-w-full min-h-full">
+					<div className={'absolute flex min-h-full min-w-full'}>
+						<div className={'flex-grow m-auto px-14 py-12 md:py-0 sm:px-12'}>
+							<div className={'grid grid-cols-1 gap-10 place-items-center'}>
+								<h1 className="text-6xl text-center leading-none font-extrabold text-gray-100 tracking-tight mb-8">Empowering<br />The Future</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<div className={'space-y-32 z-30 relative bg-white'}>
+				<section className={'min-h-screen z-30 relative gap-12 flex flex-col content-center items-center bg-gradient-to-br from-gray-800 to-gray-600 py-0 px-0 md:py-4 md:px-12'}>
+					<div className={'relative grid grid-cols-2'}>
+						<div className={'col-span-2 md:col-span-1 flex flex-wrap content-center items-center gap-4 p-6'}>
+							<div className={'mx-auto space-y-6'}>
+								<h2 className="text-5xl leading-none font-extrabold text-gray-100 tracking-tight mb-8">
+									Langgeng Cipta Solusi
+								</h2>
+								<p className={'text-gray-300 text-lg text-justify font-medium sm:leading-10 mx-auto mb-6'}>
+									PT Langgeng Cipta Solusi (LCS) is an Indonesian IT solution based company, established in 2020, located in Bandung, West Java, Indonesia. We develop an end to end integrated real time on-line solutions focusing in monitoring and creating an early warning system. Supported by competent and dedicated multidiscipline R&D team, enable us to continuously improving our products to the latest trends and innovations.
+								</p>
+							</div>
+						</div>
+						<div className={'col-span-2 md:col-span-1 h-screen p-0.5'}>
+							<Networking />
+						</div>
+					</div>
+				</section>
+				<section className={'min-h-screen z-30 relative gap-6 flex flex-col content-center items-center py-0 px-0 md:py-4 md:px-24'}>
+					<div className={'w-full p-6'}>
+						<h3 className="text-5xl leading-none font-extrabold text-gray-900 tracking-tight mb-8">
+							Our Solution.
+						</h3>
+						<p className={'text-lg sm:text-2xl font-medium sm:leading-10 space-y-6 mb-6 text-gray-500'}>
+							We provides the best solution.
+					</p>
+					</div>
+					<div className="relative flex-1 min-w-full min-h-full">
+						<div className={'absolute z-30 flex min-h-full min-w-full'}>
+							<div className={'flex-grow md:rounded-3xl transform shadow-lg bg-gray-200'} />
+						</div>
+						<div className={'absolute z-40 flex min-h-full min-w-full'}>
+							<div className={'flex-grow md:rounded-3xl transform shadow-lg bg-gradient-to-tr from-blue-400 to-blue-700 md:-rotate-2'} />
+						</div>
+						<div className={'relative z-50 lg:absolute flex min-h-full min-w-full p-12'}>
+							<div className={'flex-grow m-auto'}>
+								<div className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-8 md:px-0'}>
+									<Card
+										svg={<svg fill={'rgb(17, 24, 39)'} className={'mx-auto w-28 h-28 p-4'} focusable="false" viewBox="0 0 24 24" aria-hidden="true" tabIndex="-1" title="Devices" data-ga-event-category="material-icons" data-ga-event-action="click" data-ga-event-label="Devices"><path d="M4 6h18V4H4c-1.1 0-2 .9-2 2v11H0v3h14v-3H4V6zm19 2h-6c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h6c.55 0 1-.45 1-1V9c0-.55-.45-1-1-1zm-1 9h-4v-7h4v7z"></path></svg>}
+										title={'Responsive'}
+										description={'Every software we made designed for multiple devices, in fact, we focus on cross-platform development.'}
+									/>
+									<Card
+										svg={<svg fill={'rgb(17, 24, 39)'} className={'mx-auto w-28 h-28 p-4'} focusable="false" viewBox="0 0 24 24" aria-hidden="true" tabIndex="-1" title="Sync" data-ga-event-category="material-icons" data-ga-event-action="click" data-ga-event-label="Sync"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"></path></svg>}
+										title={'Real-time'}
+										description={'We developed an online monitoring and alerting system. Every sensors do the calculations continuously for every seconds for 24/7.'}
+									/>
+									<Card
+										svg={<svg fill={'rgb(17, 24, 39)'} className={'mx-auto w-28 h-28 p-4'} focusable="false" viewBox="0 0 24 24" aria-hidden="true" tabIndex="-1" title="VerifiedUser" data-ga-event-category="material-icons" data-ga-event-action="click" data-ga-event-label="VerifiedUser"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"></path></svg>}
+										title={'Reliable'}
+										description={'Every products we made follows the industrial standards with the helps of our professionals on their field.'}
+									/>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section className={'min-h-screen z-30 relative gap-6 flex flex-col content-center items-center py-0 px-0 md:py-4 md:px-24'}>
+					<div className={'w-full p-6'}>
+						<h3 className="text-5xl text-right leading-none font-extrabold text-gray-900 tracking-tight mb-8">
+							Products.
+						</h3>
+						<p className={'text-right text-lg sm:text-2xl font-medium sm:leading-10 mb-6 text-gray-500'}>
+							We focus on predictive maintenance for every product we've made.
+						</p>
+					</div>
+					<div className="relative flex-1 min-w-full min-h-full">
+						<div className={'absolute z-30 flex min-h-full min-w-full'}>
+							<div className={'flex-grow md:rounded-3xl transform shadow-lg bg-gray-200'}></div>
+						</div>
+						<div className={'absolute z-40 flex min-h-full min-w-full'}>
+							<div className={'flex-grow md:rounded-3xl transform shadow-lg bg-gradient-to-br from-purple-400 to-purple-700 md:rotate-2'}></div>
+						</div>
+						<div className={'relative z-50 lg:absolute flex min-h-full min-w-full p-12'}>
+							<div className={'flex-grow m-auto'}>
+								<div className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-8 md:px-0'}>
+									<Card
+										svg={<JembatankuLogo className={'mx-auto w-32 h-32'} fill={'#253160'} />}
+										title={'JembatanKu'}
+										status={'Released'}
+										description={'JembatanKu is an integrated monitoring system that provides predictive maintenance, early alerting, and health monitoring for bridges in real time.'}
+									/>
+									<Card
+										svg={<WIMLogo className={'mx-auto w-32 h-32'} />}
+										title={'Weight in Motion'}
+										status={'On-Going'}
+										description={'Our WIM is an integrated Weight in Motion system that provides predictive maintenance and an accurate payment classification based on vehicle`s weight.'}
+									/>
+									<Card
+										svg={<LandslideLogo className={'mx-auto w-32 h-32'} />}
+										title={'Landslide Monitoring'}
+										status={'On-Going'}
+										description={'Our Landslide Monitoring is an integrated monitoring system that provides predictive maintenance, early alerting, and land movement monitoring in real time.'}
+									/>
+									<Card
+										svg={<SmartFarmingLogo className={'mx-auto w-32 h-32'} />}
+										title={'Smart Farming'}
+										status={'On-Going'}
+										description={'Our Smart Farming is an integrated monitoring system that provides predictive maintenance and the most optimal farming results.'}
+									/>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section className={'min-h-screen z-30 relative gap-6 flex flex-col content-center items-center py-0 px-0 md:py-4 md:px-24'}>
+					<div className={'w-full p-6'}>
+						<h3 className="text-5xl leading-none font-extrabold text-gray-900 tracking-tight mb-8">
+							Technology.
+						</h3>
+						<p className={'text-lg sm:text-2xl font-medium sm:leading-10 mb-6 text-gray-500'}>
+							In order to implement a robust production plans and easier maintenance process, we use the full-stack MERN Solution and other reliable programming language.
+						</p>
+					</div>
+					<div className="relative flex-1 min-w-full min-h-full">
+						<div className={'absolute z-30 flex min-h-full min-w-full'}>
+							<div className={'flex-grow md:rounded-3xl transform shadow-lg bg-gray-200'}></div>
+						</div>
+						<div className={'absolute z-40 flex min-h-full min-w-full'}>
+							<div className={'flex-grow md:rounded-3xl transform shadow-lg bg-gradient-to-tr from-yellow-400 to-yellow-700 md:-rotate-2'}></div>
+						</div>
+						<div className={'relative z-50 flex min-h-full min-w-full p-12'}>
+							<div className={'flex-grow m-auto'}>
+								<div className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-8 md:px-0'}>
+									<Card
+										svg={<MongoLogo className={'mx-auto w-32 h-32'} />}
+										title={'MongoDB'}
+									/>
+									<Card
+										svg={<ExpressLogo className={'mx-auto w-32 h-32'} />}
+										title={'Express.js'}
+									/>
+									<Card
+										svg={<ReactLogo className={'mx-auto w-32 h-32'} />}
+										title={'React Framework'}
+									/>
+									<Card
+										svg={<NodeLogo className={'mx-auto w-32 h-32'} />}
+										title={'Node.js'}
+									/>
+									<Card
+										svg={<KotlinLogo className={'mx-auto w-32 h-32'} />}
+										title={'Kotlin'}
+									/>
+									<Card
+										svg={<AndroidStudioLogo className={'mx-auto w-32 h-32 p-6'} />}
+										title={'Android Studio'}
+									/>
+									<Card
+										svg={<CPPLogo className={'mx-auto w-32 h-32 p-7'} />}
+										title={'C/C++'}
+									/>
+									<Card
+										svg={<PythonLogo className={'mx-auto w-32 h-32'} />}
+										title={'Python'}
+									/>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+			<footer className={'min-h-screen z-20 relative gap-6 flex flex-col content-center items-center py-8 px-0 md:px-24 bg-gradient-to-br from-gray-100 to-gray-300'}>
+				<div className={'flex'}>
+					<h3 className="text-5xl leading-none font-extrabold text-gray-900 tracking-tight mb-8">
+						Get in touch.
+					</h3>
+				</div>
+				<div className="relative flex-1 min-w-full min-h-full">
+					<div className={'relative md:absolute flex min-h-full min-w-full'}>
+						<div className={'flex-grow m-auto px-20 py-12 md:py-0 sm:px-12'}>
+							<div className={'grid grid-cols-1 md:grid-cols-3 gap-10'}>
+								<figure>
+									<svg fill={'rgb(17, 24, 39)'} className={'mx-auto w-24 h-24'} focusable="false" viewBox="0 0 24 24" aria-hidden="true" tabIndex="-1" title="PhoneIphone" data-ga-event-category="material-icons" data-ga-event-action="click" data-ga-event-label="PhoneIphone"><path d="M15.5 1h-8C6.12 1 5 2.12 5 3.5v17C5 21.88 6.12 23 7.5 23h8c1.38 0 2.5-1.12 2.5-2.5v-17C18 2.12 16.88 1 15.5 1zm-4 21c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4.5-4H7V4h9v14z"></path></svg>
+									<div className={'mx-auto text-lg font-semibold text-center'}>
+										<a href={'tel:+62-22-4268728'}>
+											Phone: +62-22-4268728
+										</a>
+									</div>
+								</figure>
+								<figure>
+									<svg fill={'rgb(17, 24, 39)'} className={'mx-auto w-24 h-24'} focusable="false" viewBox="0 0 24 24" aria-hidden="true" tabIndex="-1" title="LocationOn" data-ga-event-category="material-icons" data-ga-event-action="click" data-ga-event-label="LocationOn"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg>
+									<div className={'mx-auto text-lg font-semibold text-center'}>
+										<a href={'https://g.page/langgeng-cipta-solusi?gm'}>
+											Jl. Cihampelas No. 2 Bandung, 40116, Jawa Barat, Indonesia
+										</a>
+									</div>
+								</figure>
+								<figure>
+									<svg fill={'rgb(17, 24, 39)'} className={'mx-auto w-24 h-24'} focusable="false" viewBox="0 0 24 24" aria-hidden="true" tabIndex="-1" title="Email" data-ga-event-category="material-icons" data-ga-event-action="click" data-ga-event-label="Email"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg>
+									<div className={'mx-auto text-lg font-semibold text-center'}>
+										<a href={'mailto:cs@langgengciptasolusi.com'}>
+											cs@langgengciptasolusi.com
+										</a>
+									</div>
+								</figure>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div className={'flex'}>
+					<p className="text-center text-gray-800">
+						PT. Langgeng Cipta Solusi &copy; {new Date().getFullYear()}
+					</p>
+				</div>
+			</footer>
+		</div>
+	</>
 }
