@@ -37,9 +37,6 @@ const Card = ({ svg, title, description, status }) => {
 			onTouchStart={(e) => {
 				e.preventDefault()
 				set({ xys: [0, 0, 1.15] })
-				if (description) {
-					setFlipped(state => !state)
-				}
 			}}
 			onTouchEnd={(e) => {
 				e.preventDefault()
