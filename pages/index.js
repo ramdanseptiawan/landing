@@ -1,7 +1,7 @@
 import React from 'react'
 import { NextSeo } from 'next-seo';
 import JembatankuLogo from '../assets/Logo/jembatanku.svg';
-// import LCSLogo from '../assets/Logo/lcs.svg';
+import LCSLogo from '../assets/Logo/lcs.svg';
 import AndroidStudioLogo from '../assets/Logo/androidStudio.svg';
 import CPPLogo from '../assets/Logo/cpp.svg';
 import MongoLogo from '../assets/Logo/mongo.svg';
@@ -134,12 +134,18 @@ export default function Home() {
 				<div className={'fixed z-10 flex h-full w-full'}>
 					<Globe />
 				</div>
-				<div className={'absolute z-20 w-full h-screen m-auto'} style={{ WebkitBackdropFilter: 'blur(5px)', backdropFilter: 'blur(5px)' }}></div>
+				<div className={'absolute z-20 w-full h-screen m-auto'}
+				// style={{ WebkitBackdropFilter: 'blur(5px)', backdropFilter: 'blur(5px)' }}
+				/>
 				<div className="relative z-30 flex-1 min-w-full min-h-full">
 					<div className={'absolute flex min-h-full min-w-full'}>
 						<div className={'flex-grow m-auto px-14 py-12 md:py-0 sm:px-12'}>
-							<div className={'grid grid-cols-1 gap-10 place-items-center'}>
-								<h1 className="text-6xl text-center leading-none font-extrabold text-gray-100 tracking-tight mb-8">Empowering<br />The Future</h1>
+							<div className={'grid grid-cols-1 place-items-center'}>
+								<LCSLogo className={'w-80'} fill={'rgb(243, 244, 246)'} />
+								<div className={'pt-2 pb-1'}>
+									<div className={'h-1 w-80 bg-gray-100 rounded-full'} />
+								</div>
+								<h1 className="text-3xl text-center leading-none font-extrabold text-gray-100 tracking-tight mb-8">Empowering The Future</h1>
 							</div>
 						</div>
 					</div>
@@ -148,7 +154,7 @@ export default function Home() {
 			<div className={'space-y-32 z-30 relative bg-white'}>
 				<section className={'min-h-screen z-30 relative gap-12 flex flex-col content-center items-center bg-gradient-to-br from-gray-800 to-gray-600 py-0 px-0 md:py-4 md:px-12'}>
 					<div className={'relative grid grid-cols-2'}>
-						<div className={'col-span-2 md:col-span-1 flex flex-wrap content-center items-center gap-4 p-6'}>
+						<div className={'col-span-3 h-screen z-50 md:col-span-1 flex flex-wrap content-center items-center gap-4 p-6'}>
 							<div className={'mx-auto space-y-6'}>
 								<h2 className="text-5xl text-center md:text-left leading-none font-extrabold text-gray-100 tracking-tight mb-8">
 									Langgeng Cipta Solusi
@@ -158,8 +164,8 @@ export default function Home() {
 								</p>
 							</div>
 						</div>
-						<div className={'col-span-2 md:col-span-1 h-screen p-0.5'}>
-							<Networking />
+						<div className={'z-40 w-full col-span-2 md:col-span-1 h-screen p-0.5'}>
+							<Networking className={'bg-gray-300'} />
 						</div>
 					</div>
 				</section>
@@ -168,8 +174,8 @@ export default function Home() {
 						<h3 className="text-5xl leading-none text-center md:text-left font-extrabold text-gray-900 tracking-tight mb-8">
 							Our Solution.
 						</h3>
-						<p className={'text-lg sm:text-2xl text-center md:text-left font-medium sm:leading-10 space-y-6 mb-6 text-gray-500'}>
-							We provides the best solution.
+						<p className={'text-lg sm:text-2xl text-center md:text-justify font-medium sm:leading-10 space-y-6 mb-6 text-gray-500'}>
+							We’re leading designer and manufacturer of data logger and data acquisition system, specialize on predictive maintenance, monitoring and early warning system. Driven by a customer oriented approach with focus on innovative technology solutions, we want to empower our customers to achieve their goals perfectly.
 					</p>
 					</div>
 					<div className="relative flex-1 min-w-full min-h-full">
@@ -208,7 +214,7 @@ export default function Home() {
 							Products.
 						</h3>
 						<p className={'text-center md:text-right text-lg sm:text-2xl font-medium sm:leading-10 mb-6 text-gray-500'}>
-							We focus on predictive maintenance for every product we've made.
+							Intensive testing had conducted on our product series to offer reliability, precision and higher customers satisfaction level.
 						</p>
 					</div>
 					<div className="relative flex-1 min-w-full min-h-full">

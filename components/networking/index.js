@@ -6,13 +6,13 @@ import { useEffect } from 'react';
 
 const Internet = () => {
     const points = []
-    points.push(new THREE.Vector3(0, -1, 0)) // this
-    points.push(new THREE.Vector3(1, -1.75, 0))
-    points.push(new THREE.Vector3(0, -1, 0))
-    points.push(new THREE.Vector3(-1, -1.75, 0))
-    points.push(new THREE.Vector3(0, -1, 0))
-    points.push(new THREE.Vector3(0, -2.25, 0))
-    points.push(new THREE.Vector3(0, -1, 0))
+    points.push(new THREE.Vector3(0, -1.3, 0)) // this
+    points.push(new THREE.Vector3(1, -1.95, 0))
+    points.push(new THREE.Vector3(0, -1.3, 0))
+    points.push(new THREE.Vector3(-1, -1.95, 0))
+    points.push(new THREE.Vector3(0, -1.3, 0))
+    points.push(new THREE.Vector3(0, -2.6, 0))
+    points.push(new THREE.Vector3(0, -1.3, 0))
     points.push(new THREE.Vector3(0, 0, 0)) // this
 
     points.push(new THREE.Vector3(1, 1, 0)) // this
@@ -33,11 +33,18 @@ const Internet = () => {
     points.push(new THREE.Vector3(-1, 1, 0))
 
     const lineGeometry = new THREE.BufferGeometry().setFromPoints(points)
-    const { scene, gl, size, camera } = useThree()
-    useEffect(() => {
-        camera.position.z = 6
-    }, [])
+    const { camera } = useThree()
     const lineMesh = useRef()
+    useEffect(() => {
+        camera.position.z = 5
+    }, [])
+    useFrame((state) => {
+        const time = state.clock.getElapsedTime()
+        camera.rotation.x = Math.sin(time / 4)
+        camera.rotation.y = Math.sin(time / 2)
+        // camera.instanceMatrix.needsUpdate = true
+    })
+
     return <>
         <Html
             ref={(instance) => {
@@ -46,7 +53,7 @@ const Internet = () => {
                     instance.style.left = -(instance.offsetWidth / 2) + 'px'
                 }
             }}
-            position={new THREE.Vector3(1, -1.75, 0)}
+            position={new THREE.Vector3(1, -1.95, 0)}
         >
             <div className={'bg-gradient-to-tr from-yellow-400 to-yellow-700 rounded-full w-10 h-10 p-2 shadow-lg'}>
                 {/* big data */}
@@ -60,7 +67,7 @@ const Internet = () => {
                     instance.style.left = -(instance.offsetWidth / 2) + 'px'
                 }
             }}
-            position={new THREE.Vector3(-1, -1.75, 0)}
+            position={new THREE.Vector3(-1, -1.95, 0)}
         >
             <div className={'bg-gradient-to-tr from-yellow-400 to-yellow-700 rounded-full w-10 h-10 p-2 shadow-lg'}>
                 {/* predictive */}
@@ -74,7 +81,7 @@ const Internet = () => {
                     instance.style.left = -(instance.offsetWidth / 2) + 'px'
                 }
             }}
-            position={new THREE.Vector3(0, -2.25, 0)}
+            position={new THREE.Vector3(0, -2.6, 0)}
         >
             <div className={'bg-gradient-to-tr from-yellow-400 to-yellow-700 rounded-full w-10 h-10 p-2 shadow-lg'}>
                 {/* forcasting */}
@@ -214,7 +221,7 @@ const Internet = () => {
                     instance.style.left = -(instance.offsetWidth / 2) + 'px'
                 }
             }}
-            position={new THREE.Vector3(0, -1, 0)}
+            position={new THREE.Vector3(0, -1.3, 0)}
         >
             <div className={'bg-gradient-to-tr from-yellow-400 to-yellow-700 rounded-full w-10 h-10 p-2 shadow-lg'}>
                 {/* database */}
@@ -232,17 +239,18 @@ const Internet = () => {
 }
 
 const Networking = () => {
-    return <Canvas color={'#000'}>
+    return <Canvas>
         <ambientLight />
         <pointLight position={[10, 10, 10]} />
         <Internet position={[0, 0, -1]} />
         <OrbitControls
             position={new THREE.Vector3(0, 0, 5)}
-            autoRotate
-            rotation={new THREE.Euler(40, 25, 70, 'xyz')}
-            autoRotateSpeed={-1.5}
+            // autoRotate
+            // autoRotateSpeed={-1.7}
             enableZoom={false}
             enablePan={false}
+            
+            
         />
     </Canvas >
 }

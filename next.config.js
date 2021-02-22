@@ -5,7 +5,10 @@ module.exports = withTM({
             test: /\.svg$/,
             use: ['@svgr/webpack'],
         });
-
+        config.module.rules.push({
+            test: /\.png$/,
+            use: ['url-loader'],
+        });
         return config;
     }
 })
