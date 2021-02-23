@@ -1,7 +1,6 @@
 import * as THREE from 'three'
 import React, { useRef, useMemo, useEffect } from 'react'
 import { Canvas, useFrame } from 'react-three-fiber'
-// // import niceColors from 'nice-color-palettes'
 
 import map from './map.png'
 const DOT_COUNT = 80000
@@ -9,9 +8,6 @@ const DOT_COUNT = 80000
 const centerVector = new THREE.Vector3(0, 0, 0)
 const tempObject = new THREE.Object3D()
 const tempColor = new THREE.Color()
-// const myColors = ['#34ebe5'] //blues
-// const colors = new Array(DOT_COUNT).fill().map(() => niceColors[17][Math.floor(Math.random() * 5)])
-// const myColors = ['#51a969', '#0c5b3b', '#126b29', '#0c5b3b'] //greens
 const colors = new Array(DOT_COUNT).fill().map(() => '#00ff00')
 
 const globeRadius = 7
@@ -35,7 +31,6 @@ const getAlpha = (distanceVector, imgData) => {
 
 function Dots() {
     const colorArray = useMemo(() => Float32Array.from(new Array(DOT_COUNT).fill().flatMap((_, i) => tempColor.set(colors[i]).toArray())), [])
-    console.log(colorArray)
     const ref = useRef()
     useEffect(() => {
         const loader = new THREE.ImageLoader()
@@ -85,12 +80,13 @@ function Dots() {
 const Sphere = () => (
     <mesh>
         <sphereBufferGeometry attach="geometry" args={[7, 32, 32]} />
-        <meshStandardMaterial attach="material" color={'#040d21'} />
+        <meshStandardMaterial attach="material" color={'#040d29'} />
     </mesh>
 )
 
 const Composition = () => {
     return <Canvas
+        color={'#121113'}
         gl={{ antialias: true, alpha: false }}
         camera={{ position: [0, 0, 12], near: 1, far: 50 }}
     >
