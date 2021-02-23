@@ -3,11 +3,12 @@ import { NextSeo } from 'next-seo';
 import LCSLogo from '../assets/Logo/lcs.svg';
 
 import Head from 'next/head';
-import Globe from '../components/globe';
-import Networking from '../components/networking'
+import dynamic from 'next/dynamic'
 import Solution from '../components/section/solution';
 import Product from '../components/section/product';
 import Technology from '../components/section/technology';
+const Globe = dynamic(() => import('../components/globe'));
+const Networking = dynamic(() => import('../components/networking'));
 
 export default function Home() {
 	return <>
