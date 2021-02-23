@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Card from '../../Card'
+import Card from '../../card'
 import Responsive from '../../../assets/Icons/responsive.svg'
 import Reliable from '../../../assets/Icons/reliable.svg'
 import Realtime from '../../../assets/Icons/realtime.svg'

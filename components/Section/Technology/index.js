@@ -1,4 +1,4 @@
-import Card from '../../Card'
+import Card from '../../card'
 import AndroidStudioLogo from '../../../assets/Logo/androidStudio.svg';
 import CPPLogo from '../../../assets/Logo/cpp.svg';
 import MongoLogo from '../../../assets/Logo/mongo.svg';

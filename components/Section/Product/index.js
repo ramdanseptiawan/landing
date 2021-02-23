@@ -1,4 +1,4 @@
-import Card from '../../Card'
+import Card from '../../card'
 import JembatankuLogo from '../../../assets/Logo/jembatanku.svg';
 import WIMLogo from '../../../assets/Logo/wim.svg';
 import LandslideLogo from '../../../assets/Logo/landslide.svg';

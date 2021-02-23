@@ -3,7 +3,7 @@ import { NextSeo } from 'next-seo';
 import LCSLogo from '../assets/Logo/lcs.svg';
 
 import Head from 'next/head';
-import Globe from '../components/Globe';
+import Globe from '../components/globe';
 import Networking from '../components/Networking'
 import Solution from '../components/Section/Solution';
 import Product from '../components/Section/Product';
