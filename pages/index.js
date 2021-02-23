@@ -4,11 +4,11 @@ import LCSLogo from '../assets/Logo/lcs.svg';
 
 import Head from 'next/head';
 import dynamic from 'next/dynamic'
-import Solution from '../components/section/solution';
-import Product from '../components/section/product';
-import Technology from '../components/section/technology';
 const Globe = dynamic(() => import('../components/globe'));
 const Networking = dynamic(() => import('../components/networking'));
+const Solution = dynamic(() => import('../components/section/solution'));
+const Product = dynamic(() => import('../components/section/product'));
+const Technology = dynamic(() => import('../components/section/technology'));
 
 export default function Home() {
 	return <>
@@ -56,7 +56,7 @@ export default function Home() {
 				Contact
 			</p>
 		</nav> */}
-			<section className={'min-h-screen relative gap-6 flex flex-col content-center items-center'}>
+			<section className={'min-h-screen relative gap-6 flex flex-col content-center items-center'} style={{ background: '#121113' }}>
 				<div className={'fixed z-10 flex h-full w-full'}>
 					<Globe />
 				</div>

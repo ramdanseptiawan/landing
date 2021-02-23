@@ -86,7 +86,6 @@ const Sphere = () => (
 
 const Composition = () => {
     return <Canvas
-        color={'#121113'}
         gl={{ antialias: true, alpha: false }}
         camera={{ position: [0, 0, 12], near: 1, far: 50 }}
     >
