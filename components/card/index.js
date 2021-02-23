@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useSpring, animated } from 'react-spring';
-import { useEffect } from 'react/cjs/react.development';
+import { useEffect } from 'react';
 import { InView } from 'react-intersection-observer';
 
 const Card = ({
