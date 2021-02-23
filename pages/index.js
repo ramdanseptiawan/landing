@@ -100,7 +100,7 @@ export default function Home() {
 						<h3 className="text-5xl leading-none text-center md:text-left font-extrabold text-gray-900 tracking-tight mb-8">
 							Our Solution.
 						</h3>
-						<p className={'text-lg sm:text-2xl text-justify font-medium sm:leading-10 space-y-6 mb-6 text-gray-500'}>
+						<p className={'text-lg sm:text-2xl text-justify font-medium sm:leading-10 space-y-6 mb-6 text-gray-600'}>
 							We’re leading designer and manufacturer of data logger and data acquisition system, specialize on predictive maintenance, monitoring and early warning system. Driven by a customer oriented approach with focus on innovative technology solutions, we want to empower our customers to achieve their goals perfectly.
 					</p>
 					</div>
@@ -141,7 +141,7 @@ export default function Home() {
 						<h3 className="text-5xl text-center md:text-left leading-none font-extrabold text-gray-900 tracking-tight mb-8">
 							Technology.
 						</h3>
-						<p className={'text-lg text-justify md:text-left sm:text-2xl font-medium sm:leading-10 mb-6 text-gray-500'}>
+						<p className={'text-lg text-justify md:text-left sm:text-2xl font-medium sm:leading-10 mb-6 text-gray-600'}>
 							In order to implement a robust production plans and easier maintenance process, we use the full-stack MERN Solution and other reliable programming language.
 						</p>
 					</div>
