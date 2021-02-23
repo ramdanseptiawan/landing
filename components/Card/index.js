@@ -4,10 +4,10 @@ import { useEffect } from 'react/cjs/react.development';
 import { InView } from 'react-intersection-observer';
 
 const Card = ({
-    svg,
-    title,
+    svg = '',
+    title = '',
     description = '',
-    status,
+    status = '',
     animate = true,
     standby = false
 }) => {

@@ -4,10 +4,10 @@ import LCSLogo from '../assets/Logo/lcs.svg';
 
 import Head from 'next/head';
 import Globe from '../components/globe';
-import Networking from '../components/Networking'
-import Solution from '../components/Section/Solution';
-import Product from '../components/Section/Product';
-import Technology from '../components/Section/Technology';
+import Networking from '../components/networking'
+import Solution from '../components/section/solution';
+import Product from '../components/section/product';
+import Technology from '../components/section/technology';
 
 export default function Home() {
 	return <>
