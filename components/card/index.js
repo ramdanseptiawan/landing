@@ -9,7 +9,8 @@ const Card = ({
     description = '',
     status = '',
     animate = true,
-    standby = false
+    standby = false,
+    superZoom = false
 }) => {
     const trans = (x, y, s) => `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
     const [flipped, setFlipped] = useState(false)
@@ -28,7 +29,7 @@ const Card = ({
     const [props, set] = useSpring(() => ({ xys: [0, 0, 0], config: { mass: 5, tension: 200, friction: 40 } }))
     useEffect(() => {
         if (standby !== null && standby) {
-            set({ xys: [0, 0, 0.8] })
+            set({ xys: [0, 0, superZoom ? 0.6 : 0.9] })
         } else if (standby !== null && !standby) {
             set({ xys: [0, 0, 1] })
         }
@@ -43,27 +44,27 @@ const Card = ({
         <animated.figure
             onMouseOver={() => {
                 if (animate) {
-                    set({ xys: [0, 0, 1.1] })
+                    set({ xys: [0, 0, superZoom ? 1.2 : 1.15] })
                     setSelected(true)
                 }
             }}
             onMouseLeave={() => {
                 if (animate) {
-                    set({ xys: [0, 0, 0.9] })
+                    set({ xys: [0, 0, superZoom ? 0.6 : 0.9] })
                     setSelected(false)
                 }
             }}
             onTouchStart={(e) => {
                 e.preventDefault()
                 if (animate) {
-                    set({ xys: [0, 0, 1.15] })
+                    set({ xys: [0, 0, superZoom ? 1.2 : 1.15] })
                     setSelected(true)
                 }
             }}
             onTouchEnd={(e) => {
                 e.preventDefault()
                 if (animate) {
-                    set({ xys: [0, 0, 0.9] })
+                    set({ xys: [0, 0, superZoom ? 0.6 : 0.9] })
                     setSelected(false)
                 }
                 if (description) {

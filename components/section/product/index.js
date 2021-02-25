@@ -21,6 +21,7 @@ const Product = () => {
                         svg={<JembatankuLogo className={'mx-auto w-32 h-32'} fill={'#253160'} />}
                         title={'JembatanKu'}
                         status={'Released'}
+                        superZoom={true}
                     // description={'JembatanKu is an integrated monitoring system that provides predictive maintenance, early alerting, and health monitoring for bridges in real time.'}
                     />
                 </div>
@@ -30,6 +31,7 @@ const Product = () => {
                         svg={<WIMLogo className={'mx-auto w-32 h-32'} />}
                         title={'Weight in Motion'}
                         status={'On-Going'}
+                        superZoom={true}
                     // description={'Our WIM is an integrated Weight in Motion system that provides predictive maintenance and an accurate payment classification based on vehicle`s weight.'}
                     />
                 </div>
@@ -39,6 +41,7 @@ const Product = () => {
                         svg={<LandslideLogo className={'mx-auto w-32 h-32'} />}
                         title={'Landslide Monitoring'}
                         status={'On-Going'}
+                        superZoom={true}
                     // description={'Our Landslide Monitoring is an integrated monitoring system that provides predictive maintenance, early alerting, and land movement monitoring in real time.'}
                     />
                 </div>
@@ -48,6 +51,7 @@ const Product = () => {
                         svg={<SmartFarmingLogo className={'mx-auto w-32 h-32'} />}
                         title={'Smart Farming'}
                         status={'On-Going'}
+                        superZoom={true}
                     // description={'Our Smart Farming is an integrated monitoring system that provides predictive maintenance and the most optimal farming results.'}
                     />
                 </div>
