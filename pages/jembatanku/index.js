@@ -49,7 +49,7 @@ const jembatanku = () => {
             </div>
             <div className={'z-20 relative grid grid-rows-1 place-items-center w-full min-h-screen bg-gray-800 text-center'}>
                 <div className={'w-full px-4 md:px-64 '}>
-                    <h1 className={'text-5xl text-center leading-none font-extrabold text-gray-100 tracking-tight mb-8'}>Topology</h1>
+                    <h2 className={'text-5xl text-center leading-none font-extrabold text-gray-100 tracking-tight mb-8'}>Topology</h2>
                     <Topology />
                 </div>
             </div>
