@@ -18,6 +18,7 @@ const Product = () => {
                 <div onMouseOver={() => setStandby(true)}>
                     <Card
                         standby={standby}
+                        link={'jembatanku'}
                         svg={<JembatankuLogo className={'mx-auto w-32 h-32'} fill={'#253160'} />}
                         title={'JembatanKu'}
                         status={'Released'}
@@ -28,6 +29,7 @@ const Product = () => {
                 <div onMouseOver={() => setStandby(true)}>
                     <Card
                         standby={standby}
+                        // link={'wim'}
                         svg={<WIMLogo className={'mx-auto w-32 h-32'} />}
                         title={'Weight in Motion'}
                         status={'On-Going'}
@@ -38,6 +40,7 @@ const Product = () => {
                 <div onMouseOver={() => setStandby(true)}>
                     <Card
                         standby={standby}
+                        // link={'landslide'}
                         svg={<LandslideLogo className={'mx-auto w-32 h-32'} />}
                         title={'Landslide Monitoring'}
                         status={'On-Going'}
@@ -48,6 +51,7 @@ const Product = () => {
                 <div onMouseOver={() => setStandby(true)}>
                     <Card
                         standby={standby}
+                        // link={'smartfarming'}
                         svg={<SmartFarmingLogo className={'mx-auto w-32 h-32'} />}
                         title={'Smart Farming'}
                         status={'On-Going'}

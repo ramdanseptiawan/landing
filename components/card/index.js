@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useSpring, animated } from 'react-spring';
 import { useEffect } from 'react';
 import { InView } from 'react-intersection-observer';
+import Router from 'next/router'
 
 const Card = ({
     svg = '',
@@ -10,7 +11,8 @@ const Card = ({
     status = '',
     animate = true,
     standby = false,
-    superZoom = false
+    superZoom = false,
+    link = ''
 }) => {
     const trans = (x, y, s) => `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
     const [flipped, setFlipped] = useState(false)
@@ -34,53 +36,65 @@ const Card = ({
             set({ xys: [0, 0, 1] })
         }
     }, [standby])
-    return <InView threshold={0.5} onChange={(inView) => {
-        if (inView) {
-            set({ xys: [0, 0, 1] })
-        } else {
-            set({ xys: [0, 0, 0] })
-        }
-    }}>
+    return <InView
+        threshold={0.5}
+        onChange={(inView) => {
+            if (inView) {
+                set({ xys: [0, 0, 1] })
+            } else {
+                set({ xys: [0, 0, 0] })
+            }
+        }}
+        onMouseOver={() => {
+            if (animate) {
+                set({ xys: [0, 0, superZoom ? 1.2 : 1.15] })
+                setSelected(true)
+            }
+            if (description) {
+                setFlipped(true)
+            }
+        }}
+        onMouseLeave={() => {
+            if (animate) {
+                set({ xys: [0, 0, superZoom ? 0.6 : 0.9] })
+                setSelected(false)
+            }
+            if (description) {
+                setFlipped(false)
+            }
+        }}
+        onTouchStart={(e) => {
+            e.preventDefault()
+            if (animate) {
+                set({ xys: [0, 0, superZoom ? 1.2 : 1.15] })
+                setSelected(true)
+            }
+        }}
+        onTouchEnd={(e) => {
+            e.preventDefault()
+            if (animate) {
+                set({ xys: [0, 0, superZoom ? 0.6 : 0.9] })
+                setSelected(false)
+            }
+            if (description) {
+                setFlipped(state => !state)
+            } else if (link !== '') {
+                Router.push(link)
+            }
+        }}
+        onClick={() => {
+            if (link !== '') {
+                Router.push(link)
+            }
+        }}
+        style={{ height: actualHeight }}
+    >
         <animated.figure
-            onMouseOver={() => {
-                if (animate) {
-                    set({ xys: [0, 0, superZoom ? 1.2 : 1.15] })
-                    setSelected(true)
-                }
-            }}
-            onMouseLeave={() => {
-                if (animate) {
-                    set({ xys: [0, 0, superZoom ? 0.6 : 0.9] })
-                    setSelected(false)
-                }
-            }}
-            onTouchStart={(e) => {
-                e.preventDefault()
-                if (animate) {
-                    set({ xys: [0, 0, superZoom ? 1.2 : 1.15] })
-                    setSelected(true)
-                }
-            }}
-            onTouchEnd={(e) => {
-                e.preventDefault()
-                if (animate) {
-                    set({ xys: [0, 0, superZoom ? 0.6 : 0.9] })
-                    setSelected(false)
-                }
-                if (description) {
-                    setFlipped(state => !state)
-                }
-            }}
             style={{
                 transform: props.xys.interpolate(trans),
                 WebkitTransform: props.xys.interpolate(trans),
                 filter: filter,
                 WebkitFilter: WebkitFilter
-            }}
-            onClick={() => {
-                if (description) {
-                    setFlipped(state => !state)
-                }
             }}
             className={'relative'}
         >

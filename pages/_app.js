@@ -11,18 +11,15 @@ const MyApp = ({ Component, pageProps }) => {
       jssStyles.parentElement.removeChild(jssStyles);
     }
     Router.onRouteChangeStart = () => {
-      console.log('s')
       NProgress.start();
     };
 
     Router.onRouteChangeComplete = () => {
-      console.log('s')
       NProgress.done();
 
     };
 
     Router.onRouteChangeError = () => {
-      console.log('s')
       NProgress.done();
     };
   }, []);
