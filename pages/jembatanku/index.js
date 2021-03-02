@@ -39,7 +39,7 @@ const jembatanku = () => {
                     <div className={'col-span-2 md:col-span-1 m-auto'}>
                         <h1 className={'text-5xl text-center md:text-left leading-none font-extrabold text-gray-900 tracking-tight mb-8'}>What is JembatanKu?</h1>
                         <p className={'text-gray-800 text-lg text-justify font-medium sm:leading-10 mx-auto mb-6'}>
-                            JembatanKu is an integrated monitoring system that provides predictive maintenance, early alerting, and health monitoring for bridges in real time.
+                            Jembatanku (My Bridge) is a native product to Indonesia in the form of an integrated system built and developed to provide early warning and monitor the health of bridges in real-time online. This system is expected to assist the manager in monitoring the dynamic condition of the bridges behavior, making plans and setting priorities for their maintenance and repair.
                         </p>
                     </div>
                     <div className={'col-span-2 md:col-span-1 p-12'}>
