@@ -4,6 +4,7 @@ import LCSLogo from '../../assets/Logo/lcs.svg';
 import JembatankuLogo from '../../assets/Logo/jembatanku.svg';
 import { InView } from 'react-intersection-observer';
 import JembatankuBG from './jembatanku_bg.jpeg';
+import VideoBG from './trimed.mp4';
 
 import dynamic from 'next/dynamic';
 import Router from 'next/router';
@@ -60,17 +61,16 @@ export default function Home() {
                 }}
             >
                 <section id={'landing'} className={'min-h-screen relative gap-6 flex flex-col content-center items-center'} style={{ background: '#121113' }}>
-                    <div className={'z-10 absolute h-screen w-full bg-cover bg-center bg-no-repeat bg-fixed'} style={{ backgroundImage: 'url("' + JembatankuBG + '")' }} />
+                    <video className={'z-10 absolute max-w-none min-w-full min-h-full bg-cover bg-center bg-no-repeat bg-fixed'} autoPlay loop muted id="myVideo" style={{ backgroundImage: 'url("' + JembatankuBG + '")', opacity: 0.8 }}>
+                        <source src={VideoBG} type="video/mp4" />
+                    </video>
                     <div className={'absolute z-20 w-full h-screen m-auto'} />
                     <div className="relative z-30 flex-1 min-w-full min-h-full">
                         <div className={'absolute flex min-h-full min-w-full'}>
                             <div className={'flex-grow m-auto px-14 py-12 md:py-0 sm:px-12'}>
                                 <div className={'grid grid-cols-1 place-items-center'}>
-                                    <h1 className={'text-5xl md:text-8xl text-center leading-none font-extrabold text-gray-50 tracking-tight mb-8'}>JembatanKu</h1>
-                                    <div className={'pb-1'}>
-                                        <div className={'h-1 w-80 opacity-95 bg-gray-100 rounded-full'} />
-                                    </div>
-                                    <h1 className="text-xl text-center opacity-95 leading-none font-extrabold text-gray-100 tracking-tight mb-8">Structural Health Monitoring System</h1>
+                                    <h1 style={{ WebkitTextStroke: '0.5px black' }} className={'text-5xl md:text-8xl text-center leading-none font-extrabold text-gray-200 tracking-tight mb-8'}>JembatanKu</h1>
+                                    <h1 style={{ WebkitTextStroke: '0.5px black' }} className="text-xl text-center opacity-95 leading-none font-extrabold text-gray-100 tracking-tight mb-8">Structural Health Monitoring System</h1>
                                 </div>
                             </div>
                         </div>
