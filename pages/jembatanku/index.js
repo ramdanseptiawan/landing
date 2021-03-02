@@ -1,10 +1,178 @@
+import React from 'react';
 import { NextSeo } from 'next-seo';
-import JembatankuBG from './jembatanku_bg.jpeg'
-import Topology from './Topology.svg'
-import Logo from '../../assets/Logo/jembatanku.svg'
-import Footer from '../../components/section/footer';
+import LCSLogo from '../../assets/Logo/lcs.svg';
+import JembatankuLogo from '../../assets/Logo/jembatanku.svg';
+import { InView } from 'react-intersection-observer';
+import JembatankuBG from './jembatanku_bg.jpeg';
 
-const jembatanku = () => {
+import dynamic from 'next/dynamic';
+import Router from 'next/router';
+const Topology = dynamic(() => import('./Topology.svg'));
+const Documents = dynamic(() => import('../../components/section/documents'));
+const Footer = dynamic(() => import('../../components/section/footer'));
+
+const Navbar = ({ section = 'landing' }) => {
+    return <nav
+        style={{ zIndex: 166782760, background: '#121113', height: 72 }}
+        className={'fixed w-full gap-12 hidden md:flex overflow-x-auto flex-row align-middle transform py-4 px-12 ' + (section !== 'landing' ? 'shadow-xl' : 'opacity-90')}
+    >
+        <div onClick={() => Router.replace('/')} className={'flex-grow m-auto'}>
+            <LCSLogo fill={'rgb(243, 244, 246)'} className={'h-6'} />
+        </div>
+        <a href={'#about'} className={'m-auto text-gray-100 font-semibold ' + (section === 'about' ? 'font-extrabold' : '')}>
+            About
+			<div className={'pt-2 pb-1'}>
+                <div className={'opacity-95 bg-gray-100 rounded-full ' + (section === 'about' ? 'h-1 w-full' : '')} />
+            </div>
+        </a>
+        <a href={'#topology'} className={'m-auto text-gray-100 font-semibold ' + (section === 'topology' ? 'font-extrabold' : '')}>
+            Topology
+			<div className={'pt-2 pb-1'}>
+                <div className={'opacity-95 bg-gray-100 rounded-full ' + (section === 'topology' ? 'h-1 w-full' : '')} />
+            </div>
+        </a>
+        <a href={'#documents'} className={'m-auto text-gray-100 font-semibold ' + (section === 'documents' ? 'font-extrabold' : '')}>
+            Documents
+			<div className={'pt-2 pb-1'}>
+                <div className={'opacity-95 bg-gray-100 rounded-full ' + (section === 'documents' ? 'h-1 w-full' : '')} />
+            </div>
+        </a>
+        <a href={'#contact'} className={'m-auto text-gray-100 font-semibold ' + (section === 'contact' ? 'font-extrabold' : '')}>
+            Contact
+			<div className={'pt-2 pb-1'}>
+                <div className={'opacity-95 bg-gray-100 rounded-full ' + (section === 'contact' ? 'h-1 w-full' : '')} />
+            </div>
+        </a>
+    </nav>
+}
+
+export default function Home() {
+    const [section, setSection] = React.useState('landing')
+    const [Layout, setLayout] = React.useState()
+    React.useEffect(() => {
+        setLayout(<div className={'relative select-none'}>
+            <InView
+                threshold={0.5}
+                onChange={(inView) => {
+                    if (inView) {
+                        setSection('landing')
+                    }
+                }}
+            >
+                <section id={'landing'} className={'min-h-screen relative gap-6 flex flex-col content-center items-center'} style={{ background: '#121113' }}>
+                    <div className={'z-10 absolute h-screen w-full bg-cover bg-center bg-no-repeat bg-fixed'} style={{ backgroundImage: 'url("' + JembatankuBG + '")' }} />
+                    <div className={'absolute z-20 w-full h-screen m-auto'} />
+                    <div className="relative z-30 flex-1 min-w-full min-h-full">
+                        <div className={'absolute flex min-h-full min-w-full'}>
+                            <div className={'flex-grow m-auto px-14 py-12 md:py-0 sm:px-12'}>
+                                <div className={'grid grid-cols-1 place-items-center'}>
+                                    <h1 className={'text-5xl md:text-8xl text-center leading-none font-extrabold text-gray-50 tracking-tight mb-8'}>JembatanKu</h1>
+                                    <div className={'pb-1'}>
+                                        <div className={'h-1 w-80 opacity-95 bg-gray-100 rounded-full'} />
+                                    </div>
+                                    <h1 className="text-xl text-center opacity-95 leading-none font-extrabold text-gray-100 tracking-tight mb-8">Structural Health Monitoring System</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </InView>
+            <div className={'z-30 relative'} style={{ background: '#F7F7F2' }}>
+                <InView
+                    threshold={0.5}
+                    onChange={(inView) => {
+                        if (inView) {
+                            setSection('about')
+                        }
+                    }}
+                >
+                    <section id={'about'} style={{ minHeight: 'calc(100vh + 2rem)' }} className={'z-30 relative flex flex-col content-center items-center px-0 py-16 md:px-24'}>
+                        <div className={'relative grid grid-cols-2'}>
+                            <div className={'z-40 w-full col-span-2 md:col-span-1 flex flex-wrap content-center items-center h-screen p-0.5'}>
+                                <JembatankuLogo className={'w-full p-16'} />
+                            </div>
+                            <div className={'col-span-3 h-screen z-50 md:col-span-1 flex flex-wrap content-center items-center gap-4 p-6'}>
+                                <div className={'mx-auto space-y-6'}>
+                                    <p className={'text-gray-800 text-lg text-justify font-medium sm:leading-10 mx-auto mb-6'}>
+                                        JembatanKu (My Bridge) is a native product to Indonesia in the form of an integrated system built and developed to provide early warning and monitor the health of bridges in real-time online. This system is expected to assist the manager in monitoring the dynamic condition of the bridges behavior, making plans and setting priorities for their maintenance and repair.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </InView>
+                <InView
+                    threshold={0.5}
+                    onChange={(inView) => {
+                        if (inView) {
+                            setSection('topology')
+                        }
+                    }}
+                >
+                    <section
+                        id={'topology'}
+                        style={{ minHeight: 'calc(100vh + 2rem)', background: '#222725' }}
+                        className={'z-30 relative flex flex-col content-center items-center px-0 py-16 md:px-12 gap-12'}
+                    >
+                        <div className={'relative grid grid-cols-2'}>
+                            <div className={'col-span-3 h-screen z-50 md:col-span-1 flex flex-wrap content-center items-center gap-4 p-6'}>
+                                <div className={'mx-auto space-y-6'}>
+                                    <h2 className="text-5xl text-center md:text-left leading-none font-extrabold text-gray-100 tracking-tight mb-8">
+                                        Talking about topology.
+									</h2>
+                                    <p className={'text-gray-200 text-lg text-justify font-medium sm:leading-10 mx-auto mb-6'}>
+                                        We designed the "client first" topology, in terms to deliver the most up-to-date data synchronization. Using this topology, we eliminate so much delay between every updates.
+                                    </p>
+                                </div>
+                            </div>
+                            <div className={'z-40 w-full col-span-2 md:col-span-1 flex flex-wrap content-center items-center h-screen p-0.5'}>
+                                <Topology className={'w-full'} />
+                            </div>
+                        </div>
+                    </section>
+                </InView>
+                <InView
+                    threshold={0.5}
+                    onChange={(inView) => {
+                        if (inView) {
+                            setSection('documents')
+                        }
+                    }}
+                >
+                    <section
+                        id={'documents'}
+                        style={{ minHeight: 'calc(100vh + 2rem)' }}
+                        className={'z-30 relative flex flex-col content-center items-center px-0 py-16 md:px-24'}
+                    >
+                        <div className={'w-full p-6'}>
+                            <h3 className="text-5xl text-center md:text-right leading-none font-extrabold text-gray-900 tracking-tight mb-8">
+                                Documents.
+							</h3>
+                            <p className={'text-justify md:text-right text-lg sm:text-2xl font-medium sm:leading-10 mb-6 text-gray-800'}>
+                                To know our product better, we provides a booklet and an e-flyer to share around the world.
+							</p>
+                        </div>
+                        <div className="relative flex-1 min-w-full min-h-full">
+                            <div className={'absolute z-40 flex min-h-full min-w-full'}>
+                                <div className={'flex-grow md:rounded-3xl transform shadow-lg bg-gradient-to-tr from-blue-400 to-blue-700 md:rotate-2'}></div>
+                            </div>
+                            <Documents />
+                        </div>
+                    </section>
+                </InView>
+            </div>
+            <InView
+                threshold={0.5}
+                onChange={(inView) => {
+                    if (inView) {
+                        setSection('contact')
+                    }
+                }}
+            >
+                <Footer />
+            </InView>
+        </div>)
+    }, [])
     return <>
         <NextSeo
             additionalMetaTags={[{
@@ -12,12 +180,12 @@ const jembatanku = () => {
                 content: 'jembatanku, lcs, lcs indonesia, lcsindonesia, it solution, solution lcsindo, lcs indo, langgeng cipta, solusi, langgeng, langgeng cipta solusi, cipta, empowering the future, empowering, the future, shms, structural health monitoring system, structural health monitoring, integrated, integrated system'
             }]}
             title='JembatanKu - Structural Health Monitoring System'
-            description=' JembatanKu is an integrated monitoring system that provides predictive maintenance, early alerting, and health monitoring for bridges in real time.'
+            description='JembatanKu (My Bridge) is a native product to Indonesia in the form of an integrated system built and developed to provide early warning and monitor the health of bridges in real-time online. This system is expected to assist the manager in monitoring the dynamic condition of the bridges behavior, making plans and setting priorities for their maintenance and repair.'
             canonical='https://lcsindonesia.com/jembatanku/'
             openGraph={{
                 url: 'https://lcsindonesia.com/jembatanku/',
                 title: 'JembatanKu - Structural Health Monitoring System',
-                description: ' JembatanKu is an integrated monitoring system that provides predictive maintenance, early alerting, and health monitoring for bridges in real time.',
+                description: 'JembatanKu (My Bridge) is a native product to Indonesia in the form of an integrated system built and developed to provide early warning and monitor the health of bridges in real-time online. This system is expected to assist the manager in monitoring the dynamic condition of the bridges behavior, making plans and setting priorities for their maintenance and repair.',
                 images: [
                     { url: 'https://lcsindonesia.com/jembatankuLogo.png' },
                 ]
@@ -26,50 +194,7 @@ const jembatanku = () => {
                 cardType: 'summary'
             }}
         />
-        <div className={'relative'}>
-            <div className={'z-10 absolute h-screen w-full bg-cover bg-center bg-no-repeat bg-fixed'} style={{ backgroundImage: 'url("' + JembatankuBG + '")' }} />
-            <div className={'z-20 relative grid grid-rows-1 place-items-center min-h-screen w-full text-center text-gray-50'}>
-                <div>
-                    <h1 className={'text-7xl md:text-8xl text-center leading-none font-extrabold text-gray-50 tracking-tight mb-8'}>JembatanKu</h1>
-                    <h1 className={'text-xl text-center leading-none font-bold text-gray-100 tracking-tight mb-8'}>Structural Health Monitoring System</h1>
-                </div>
-            </div>
-            <div className={'z-20 relative grid grid-rows-1 place-items-center min-h-screen w-full bg-gray-100 text-center text-gray-50'}>
-                <div className={'grid grid-cols-2 px-4 md:px-32 gap-10'}>
-                    <div className={'col-span-2 md:col-span-1 m-auto'}>
-                        <h1 className={'text-5xl text-center md:text-left leading-none font-extrabold text-gray-900 tracking-tight mb-8'}>What is JembatanKu?</h1>
-                        <p className={'text-gray-800 text-lg text-justify font-medium sm:leading-10 mx-auto mb-6'}>
-                            Jembatanku (My Bridge) is a native product to Indonesia in the form of an integrated system built and developed to provide early warning and monitor the health of bridges in real-time online. This system is expected to assist the manager in monitoring the dynamic condition of the bridges behavior, making plans and setting priorities for their maintenance and repair.
-                        </p>
-                    </div>
-                    <div className={'col-span-2 md:col-span-1 p-12'}>
-                        <Logo />
-                    </div>
-                </div>
-            </div>
-            <div className={'z-20 relative grid grid-rows-1 place-items-center w-full min-h-screen bg-gray-800 text-center'}>
-                <div className={'w-full px-4 md:px-64 '}>
-                    <h2 className={'text-5xl text-center leading-none font-extrabold text-gray-100 tracking-tight mb-8'}>Topology</h2>
-                    <Topology />
-                </div>
-            </div>
-            <div className={'z-20 relative flex gap-5 justify-center w-full bg-gray-100 text-center text-gray-50 p-6'}>
-                <div className={'w-64 bg-gray-300 h-64 rounded-md'} onClick={() => window.open('./booklet.pdf')}>
-                    <div className={'grid p-12'}>
-                        <svg className={'p-6 w-full'} fill={'rgb(31, 41, 55)'} viewBox="0 0 24 24"><path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"></path><path d="M17.5 10.5c.88 0 1.73.09 2.5.26V9.24c-.79-.15-1.64-.24-2.5-.24-1.7 0-3.24.29-4.5.83v1.66c1.13-.64 2.7-.99 4.5-.99zM13 12.49v1.66c1.13-.64 2.7-.99 4.5-.99.88 0 1.73.09 2.5.26V11.9c-.79-.15-1.64-.24-2.5-.24-1.7 0-3.24.3-4.5.83zM17.5 14.33c-1.7 0-3.24.29-4.5.83v1.66c1.13-.64 2.7-.99 4.5-.99.88 0 1.73.09 2.5.26v-1.52c-.79-.16-1.64-.24-2.5-.24z"></path></svg>
-                        <p>Booklet</p>
-                    </div>
-                </div>
-                <div className={'w-64 bg-gray-300 h-64 rounded-md'} onClick={() => window.open('./eflyer.pdf')}>
-                    <div className={'grid p-12'}>
-                        <svg className={'p-6 w-full'} fill={'rgb(31, 41, 55)'} viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"></path></svg>
-                        <p>E-Flyer</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <Footer />
+        <Navbar section={section} />
+        {Layout}
     </>
 }
-
-export default jembatanku
