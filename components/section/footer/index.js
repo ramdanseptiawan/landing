@@ -1,7 +1,8 @@
 const Footer = () => {
     return <footer
+        id={'contact'}
         style={{ background: '#222725' }}
-        className={'min-h-screen z-20 relative gap-6 flex flex-col content-center items-center py-8 px-0 md:px-24'}
+        className={'min-h-screen z-20 relative gap-6 flex flex-col content-center items-center py-32 px-0 md:px-24'}
     >
         <div className={'flex'}>
             <h3 className="text-5xl leading-none font-extrabold text-gray-100 tracking-tight mb-8">
@@ -9,9 +10,9 @@ const Footer = () => {
         </h3>
         </div>
         <div className="relative flex-1 min-w-full min-h-full">
-            <div className={'relative md:absolute flex min-h-full min-w-full'}>
+            <div className={'relative flex min-h-full min-w-full'}>
                 <div className={'flex-grow m-auto p-6'}>
-                    <div className={'grid grid-cols-1 md:grid-cols-3 gap-10'}>
+                    <div className={'grid grid-cols-1 lg:grid-cols-3 gap-10'}>
                         <figure>
                             <svg fill={'#F7F7F2'} className={'mx-auto w-24 h-24'} focusable="false" viewBox="0 0 24 24" aria-hidden="true" tabIndex="-1" title="PhoneIphone" data-ga-event-category="material-icons" data-ga-event-action="click" data-ga-event-label="PhoneIphone"><path d="M15.5 1h-8C6.12 1 5 2.12 5 3.5v17C5 21.88 6.12 23 7.5 23h8c1.38 0 2.5-1.12 2.5-2.5v-17C18 2.12 16.88 1 15.5 1zm-4 21c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4.5-4H7V4h9v14z"></path></svg>
                             <div className={'mx-auto text-lg font-semibold text-center text-gray-200'}>

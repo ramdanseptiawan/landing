@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useSpring, animated } from 'react-spring';
 import { useEffect } from 'react';
 import { InView } from 'react-intersection-observer';
-import Router from 'next/router'
+import Router from 'next/router';
 
 const Card = ({
     svg = '',

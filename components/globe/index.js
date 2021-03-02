@@ -63,7 +63,7 @@ function Dots() {
     }, [])
 
     useFrame(() => {
-        ref.current.rotation.y -= 0.002
+        ref.current.rotation.y += 0.002
         ref.current.instanceMatrix.needsUpdate = true
     })
 
@@ -86,8 +86,7 @@ const Sphere = () => (
 
 const Composition = () => {
     return <Canvas
-        gl={{ antialias: true, alpha: false }}
-        camera={{ position: [0, 0, 12], near: 1, far: 50 }}
+        camera={{ position: [0, 0, 14], near: 1, far: 50 }}
     >
         <ambientLight />
         <pointLight position={[-150, 150, 10]} intensity={1} />
