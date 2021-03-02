@@ -21,7 +21,7 @@ const Product = () => {
                         standby={standby}
                         link={'jembatanku'}
                         svg={<JembatankuLogo className={'mx-auto w-32 h-32'} fill={'#253160'} />}
-                        title={'JembatanKu'}
+                        title={'Structural Monitoring'}
                         status={'Released'}
                         // background={JembatankuBG}
                     // superZoom={true}
