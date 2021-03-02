@@ -37,10 +37,9 @@ div::-webkit-scrollbar-button {display:none}
 }
 
 #nprogress .bar {
-    @apply bg-gradient-to-br;
+    @apply bg-gradient-to-r;
     @apply from-blue-400;
-    @apply via-purple-400;
-    @apply to-yellow-400;
+    @apply to-blue-300;
 
     position: fixed;
     z-index: 166782765;
