@@ -4,7 +4,6 @@ import LCSLogo from '../../assets/Logo/lcs.svg';
 import JembatankuLogo from '../../assets/Logo/jembatanku.svg';
 import { InView } from 'react-intersection-observer';
 import JembatankuBG from './jembatanku_bg.jpeg';
-import VideoBG from './trimed.mp4';
 
 import dynamic from 'next/dynamic';
 import Router from 'next/router';
@@ -62,7 +61,7 @@ export default function Home() {
             >
                 <section id={'landing'} className={'min-h-screen relative gap-6 flex flex-col content-center items-center'} style={{ background: '#121113' }}>
                     <video className={'z-10 absolute max-w-none min-w-full min-h-full bg-cover bg-center bg-no-repeat bg-fixed'} autoPlay loop muted id="myVideo" style={{ backgroundImage: 'url("' + JembatankuBG + '")', opacity: 0.8 }}>
-                        <source src={VideoBG} type="video/mp4" />
+                        <source src={'/bridge.mp4'} type="video/mp4" />
                     </video>
                     <div className={'absolute z-20 w-full h-screen m-auto'} />
                     <div className="relative z-30 flex-1 min-w-full min-h-full">
