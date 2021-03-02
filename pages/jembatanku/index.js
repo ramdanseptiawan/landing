@@ -92,8 +92,11 @@ export default function Home() {
                             </div>
                             <div className={'col-span-3 h-screen z-50 md:col-span-1 flex flex-wrap content-center items-center gap-4 p-6'}>
                                 <div className={'mx-auto space-y-6'}>
+                                    <h2 className="text-5xl leading-none font-extrabold text-gray-900 tracking-tight mb-8">
+                                        JembatanKu
+									</h2>
                                     <p className={'text-gray-800 text-lg text-justify font-medium sm:leading-10 mx-auto mb-6'}>
-                                        JembatanKu (My Bridge) is a native product to Indonesia in the form of an integrated system built and developed to provide early warning and monitor the health of bridges in real-time online. This system is expected to assist the manager in monitoring the dynamic condition of the bridges behavior, making plans and setting priorities for their maintenance and repair.
+                                        Is a native product to Indonesia in the form of an integrated system built and developed to provide early warning and monitor the health of bridges in real-time online. This system is expected to assist the manager in monitoring the dynamic condition of the bridges behavior, making plans and setting priorities for their maintenance and repair.
                                     </p>
                                 </div>
                             </div>
