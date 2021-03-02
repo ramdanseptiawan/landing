@@ -13,10 +13,10 @@ const Footer = dynamic(() => import('../components/section/footer'));
 
 const Navbar = ({ section = 'landing' }) => {
 	return <nav
-		style={{ zIndex: 166782760, background: '#121113' }}
-		className={'fixed w-full gap-12 hidden md:flex overflow-x-auto  flex-row align-middle transform py-4 px-12 ' + (section !== 'landing' ? 'shadow-xl' : '')}
+		style={{ zIndex: 166782760, background: '#121113', height: 72 }}
+		className={'fixed w-full gap-12 hidden md:flex overflow-x-auto flex-row align-middle transform py-4 px-12 ' + (section !== 'landing' ? 'shadow-xl' : '')}
 	>
-		<a href={'#landing'} className={'flex-grow'}>
+		<a href={'#landing'} className={'flex-grow m-auto'}>
 			<LCSLogo fill={'rgb(243, 244, 246)'} className={'h-6'} />
 		</a>
 		<a href={'#about'} className={'m-auto text-gray-100 font-semibold ' + (section === 'about' ? 'font-extrabold' : '')}>
