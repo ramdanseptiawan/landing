@@ -59,7 +59,7 @@ export default function Home() {
                     }
                 }}
             >
-                <section id={'landing'} className={'min-h-screen relative gap-6 flex flex-col content-center items-center'} style={{ background: '#121113' }}>
+                <section id={'landing'} className={'min-h-screen overflow-hidden relative gap-6 flex flex-col content-center items-center'} style={{ background: '#121113' }}>
                     <video className={'z-10 absolute max-w-none min-w-full min-h-full bg-cover bg-center bg-no-repeat bg-fixed'} autoPlay loop muted id="myVideo" style={{ backgroundImage: 'url("' + JembatankuBG + '")', opacity: 0.8 }}>
                         <source src={'/bridge.mp4'} type="video/mp4" />
                     </video>
