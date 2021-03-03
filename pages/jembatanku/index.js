@@ -90,8 +90,8 @@ export default function Home() {
                 >
                     <section id={'about'} style={{ minHeight: 'calc(100vh + 2rem)' }} className={'z-30 relative flex flex-col content-center items-center px-0 py-16 md:px-24'}>
                         <div className={'relative grid grid-cols-2'}>
-                            <div className={'z-40 w-full col-span-2 md:col-span-1 flex flex-wrap content-center items-center h-screen p-0.5'}>
-                                <JembatankuLogo className={'w-full p-16'} />
+                            <div className={'z-40 w-full col-span-2 md:col-span-1 flex flex-wrap content-center items-center h-screen p-6'}>
+                                <iframe frameBorder={0} height={'300'} className={'m-auto flex-grow rounded'} src={"https://www.youtube.com/embed/4wOe2lbk4XU?rel=0&showinfo=0"} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                             </div>
                             <div className={'col-span-3 h-screen z-50 md:col-span-1 flex flex-wrap content-center items-center gap-4 p-6'}>
                                 <div className={'mx-auto space-y-6'}>
