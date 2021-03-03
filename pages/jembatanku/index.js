@@ -93,7 +93,7 @@ export default function Home() {
                     <section id={'about'}>
                         <div className={'container m-auto py-12 min-h-screen h-full relative grid grid-cols-2 gap-6 content-center'}>
                             <div className={'z-40 p-6 w-full col-span-2 md:col-span-1 flex flex-wrap content-center items-center m-auto'}>
-                                <iframe style={{ height: '50vh' }} height={'100%'} frameBorder={0} className={'flex-grow rounded-3xl shadow-lg'} src={"https://www.youtube.com/embed/4wOe2lbk4XU?enablejsapi=1&version=3&controls=0&rel=0"} allow="autoplay; encrypted-media;" allowFullScreen></iframe>
+                                <iframe style={{ height: '50vh' }} height={'100%'} frameBorder={0} className={'flex-grow rounded-xl shadow-lg'} src={"https://www.youtube.com/embed/4wOe2lbk4XU?enablejsapi=1&version=3&controls=0&rel=0"} allow="autoplay; encrypted-media;" allowFullScreen></iframe>
                             </div>
                             <div className={'col-span-2 h-full z-50 p-6 md:col-span-1 flex flex-wrap content-center items-center'}>
                                 <div className={'mx-auto space-y-6'}>
