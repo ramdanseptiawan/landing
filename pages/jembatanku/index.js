@@ -74,7 +74,7 @@ export default function Home() {
                                     <div className={'pt-2 pb-1'}>
                                         <div className={'h-1 w-80 opacity-95 bg-gray-100 rounded-full'} />
                                     </div>
-                                    <h1 className="text-3xl text-center opacity-95 leading-none font-extrabold text-gray-100 tracking-tight mb-8">Structural Monitoring</h1>
+                                    <h1 className="text-3xl text-center opacity-95 leading-none font-extrabold text-gray-100 tracking-tight mb-8">Structural Health Monitoring</h1>
                                 </div>
                             </div>
                         </div>
