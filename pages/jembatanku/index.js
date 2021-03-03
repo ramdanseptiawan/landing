@@ -59,11 +59,13 @@ export default function Home() {
                     }
                 }}
             >
-                <section id={'landing'} className={'min-h-screen overflow-hidden relative gap-6 flex flex-col content-center items-center'} style={{ background: '#121113' }}>
+                <section
+                    id={'landing'}
+                    className={'min-h-screen overflow-hidden relative gap-6 flex flex-col content-center items-center'} style={{ background: '#121113' }}
+                >
                     <video playsInline className={'z-10 absolute max-w-none min-w-full min-h-full bg-cover bg-center bg-no-repeat bg-fixed'} autoPlay loop muted id="myVideo" style={{ backgroundImage: 'url("' + JembatankuBG + '")', opacity: 0.6 }}>
                         <source src={'/bridge.mp4'} type="video/mp4" />
                     </video>
-                    <div className={'absolute z-20 w-full h-screen m-auto'} />
                     <div className="relative z-30 flex-1 min-w-full min-h-full">
                         <div className={'absolute flex min-h-full min-w-full'}>
                             <div className={'flex-grow m-auto px-14 py-12 md:py-0 sm:px-12'}>
@@ -88,14 +90,14 @@ export default function Home() {
                         }
                     }}
                 >
-                    <section id={'about'} style={{ minHeight: 'calc(100vh + 2rem)' }} className={'z-30 relative flex flex-col content-center items-center px-0 py-16 md:px-24'}>
-                        <div className={'relative grid grid-cols-2'}>
-                            <div className={'z-40 w-full col-span-2 md:col-span-1 flex flex-wrap content-center items-center h-screen p-6'}>
-                                <iframe frameBorder={0} height={'300'} className={'m-auto flex-grow rounded'} src={"https://www.youtube.com/embed/4wOe2lbk4XU?rel=0&showinfo=0"} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                    <section id={'about'}>
+                        <div className={'container m-auto py-12 min-h-screen h-full relative grid grid-cols-2 gap-6 content-center'}>
+                            <div className={'z-40 p-6 w-full col-span-2 md:col-span-1 flex flex-wrap content-center items-center m-auto'}>
+                                <iframe aria-errormessage={(error) => console.log(error)} frameBorder={0} height={'300'} className={'flex-grow rounded'} src={"https://www.youtube.com/embed/4wOe2lbk4XU?enablejsapi=1&version=3&controls=0&rel=0"} allow="autoplay; encrypted-media;" allowFullScreen></iframe>
                             </div>
-                            <div className={'col-span-3 h-screen z-50 md:col-span-1 flex flex-wrap content-center items-center gap-4 p-6'}>
+                            <div className={'col-span-2 h-full z-50 p-6 md:col-span-1 flex flex-wrap content-center items-center'}>
                                 <div className={'mx-auto space-y-6'}>
-                                    <h2 className="text-5xl leading-none font-extrabold text-gray-900 tracking-tight mb-8">
+                                    <h2 className="text-5xl text-center md:text-left leading-none font-extrabold text-gray-900 tracking-tight mb-8">
                                         JembatanKu
 									</h2>
                                     <p className={'text-gray-800 text-lg text-justify font-medium sm:leading-10 mx-auto mb-6'}>
@@ -116,11 +118,11 @@ export default function Home() {
                 >
                     <section
                         id={'topology'}
-                        style={{ minHeight: 'calc(100vh + 2rem)', background: '#222725' }}
-                        className={'z-30 relative flex flex-col content-center items-center px-0 py-16 md:px-12 gap-12'}
+                        style={{ background: '#222725' }}
                     >
-                        <div className={'relative grid grid-cols-2'}>
-                            <div className={'col-span-3 h-screen z-50 md:col-span-1 flex flex-wrap content-center items-center gap-4 p-6'}>
+                        <div className={'container m-auto py-12 min-h-screen h-full relative grid grid-cols-2 gap-6 content-center'}>
+
+                            <div className={'col-span-2 h-full z-50 p-6 md:col-span-1 flex flex-wrap content-center items-center'}>
                                 <div className={'mx-auto space-y-6'}>
                                     <h2 className="text-5xl text-center md:text-left leading-none font-extrabold text-gray-100 tracking-tight mb-8">
                                         Talking about topology.
@@ -130,8 +132,8 @@ export default function Home() {
                                     </p>
                                 </div>
                             </div>
-                            <div className={'z-40 w-full col-span-2 md:col-span-1 flex flex-wrap content-center items-center h-screen p-6'}>
-                                <Topology className={'w-full'} />
+                            <div className={'z-40 p-6 w-full col-span-2 md:col-span-1 flex flex-wrap content-center items-center m-auto'}>
+                                <Topology className={'m-auto flex-grow'} />
                             </div>
                         </div>
                     </section>
@@ -144,20 +146,28 @@ export default function Home() {
                         }
                     }}
                 >
-                    <section id={'solution'} style={{ minHeight: 'calc(100vh + 2rem)' }} className={'z-30 relative flex flex-col content-center items-center px-0 py-16 md:px-24'}>
-                        <div className={'w-full p-6'}>
-                            <h3 className="text-5xl text-center md:text-right leading-none font-extrabold text-gray-900 tracking-tight mb-8">
-                                Documents.
-							</h3>
-                            <p className={'text-justify md:text-right text-lg sm:text-2xl font-medium sm:leading-10 mb-6 text-gray-800'}>
-                                To know our product better, we provides a booklet and an e-flyer to share around the world.
-							</p>
-                        </div>
-                        <div className="relative flex-1 min-w-full min-h-full">
-                            <div className={'absolute z-40 flex min-h-full min-w-full'}>
-                                <div className={'flex-grow md:rounded-3xl transform shadow-lg bg-gradient-to-tr from-purple-400 to-purple-700 md:-rotate-2'}></div>
+                    <section
+                        id={'solution'}
+                    >
+                        <div className={'container m-auto py-12 min-h-screen h-full relative grid grid-cols-1 gap-6 content-center'}>
+                            <div className={'h-full z-50 p-6 flex flex-wrap content-center items-center'}>
+                                <div className={'mx-auto space-y-6'}>
+                                    <h3 className="text-5xl text-center md:text-right leading-none font-extrabold text-gray-900 tracking-tight mb-8">
+                                        Documents.
+                                    </h3>
+                                    <p className={'text-justify md:text-right text-lg sm:text-2xl font-medium sm:leading-10 mb-6 text-gray-800'}>
+                                        To know our product better, we provides a booklet and an e-flyer to share around the world.
+							        </p>
+                                </div>
                             </div>
-                            <Documents />
+                            <div className={'z-40 p-6 w-full h-full flex flex-wrap content-center items-center m-auto'}>
+                                <div className="relative flex min-w-full min-h-full">
+                                    <div className={'absolute z-30 flex min-h-full min-w-full'}>
+                                        <div className={'flex-grow md:rounded-3xl transform shadow-lg bg-gradient-to-tr from-purple-400 to-purple-700 md:-rotate-2'}></div>
+                                    </div>
+                                    <Documents />
+                                </div>
+                            </div>
                         </div>
                     </section>
                     {/* <section

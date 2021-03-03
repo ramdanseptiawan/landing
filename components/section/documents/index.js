@@ -4,7 +4,7 @@ import { useState } from 'react';
 const Documents = () => {
     const [standby, setStandby] = useState(null)
     return <div
-        className={'relative md:absolute z-50 flex min-h-full min-w-full p-12'}
+        className={'relative z-50 flex min-h-full min-w-full p-12'}
     >
         <div className={'flex-grow m-auto'}>
             <div
