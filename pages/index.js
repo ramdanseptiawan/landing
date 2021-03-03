@@ -96,22 +96,21 @@ export default function Home() {
 				>
 					<section
 						id={'about'}
-						style={{ minHeight: 'calc(100vh + 2rem)', background: '#222725' }}
-						className={'z-30 relative flex flex-col content-center items-center px-0 py-16 md:px-12 gap-12'}
+						style={{ background: '#222725' }}
 					>
-						<div className={'relative grid grid-cols-2'}>
-							<div className={'col-span-3 h-screen z-50 md:col-span-1 flex flex-wrap content-center items-center gap-4 p-6'}>
+						<div className={'container m-auto py-12 min-h-screen h-full relative grid grid-cols-2 gap-6 content-center'}>
+							<div className={'z-40 w-full h-screen col-span-2 md:col-span-1 flex flex-wrap content-center items-center m-auto'}>
+								<Networking className={'m-auto flex-grow'} />
+							</div>
+							<div className={'col-span-2 h-full z-50 p-6 md:col-span-1 flex flex-wrap content-center items-center'}>
 								<div className={'mx-auto space-y-6'}>
 									<h2 className="text-5xl text-center md:text-left leading-none font-extrabold text-gray-100 tracking-tight mb-8">
 										Langgeng Cipta Solusi
 									</h2>
 									<p className={'text-gray-200 text-lg text-justify font-medium sm:leading-10 mx-auto mb-6'}>
 										PT Langgeng Cipta Solusi (LCS) is an Indonesian IT solution based company, established in 2020, located in Bandung, West Java, Indonesia. We develop an end to end integrated real time on-line solutions focusing in monitoring and creating an early warning system. Supported by competent and dedicated multidiscipline R&D team, enable us to continuously improving our products to the latest trends and innovations.
-									</p>
+                                    </p>
 								</div>
-							</div>
-							<div className={'z-40 w-full col-span-2 md:col-span-1 h-screen p-0.5'}>
-								<Networking className={'bg-gray-300'} />
 							</div>
 						</div>
 					</section>

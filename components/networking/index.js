@@ -84,7 +84,7 @@ const Internet = () => {
     const { camera } = useThree()
     const lineMesh = useRef()
     useEffect(() => {
-        camera.position.z = 5
+        camera.position.z = 6
     }, [])
 
     return <>
@@ -181,11 +181,11 @@ const Networking = () => {
         <ambientLight />
         <pointLight position={[10, 10, 10]} />
         <Internet position={[0, 0, -1]} />
-        <OrbitControls
+        {/* <OrbitControls
             position={new THREE.Vector3(0, 0, 5)}
             enableZoom={false}
             enablePan={false}
-        />
+        /> */}
     </Canvas >
 }
 
