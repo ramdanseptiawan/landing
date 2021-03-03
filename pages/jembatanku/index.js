@@ -68,8 +68,11 @@ export default function Home() {
                         <div className={'absolute flex min-h-full min-w-full'}>
                             <div className={'flex-grow m-auto px-14 py-12 md:py-0 sm:px-12'}>
                                 <div className={'grid grid-cols-1 place-items-center'}>
-                                    <h1 className={'text-5xl md:text-8xl opacity-95 text-center leading-none font-extrabold text-gray-200 tracking-tight mb-8'}>JembatanKu</h1>
-                                    <h1 className="text-xl text-center opacity-95 leading-none font-extrabold text-gray-100 tracking-tight mb-8">Structural Health Monitoring System</h1>
+                                    <JembatankuLogo className={'w-80 h-auto'} fill={'rgba(243, 244, 246, 0.95)'} />
+                                    <div className={'pt-2 pb-1'}>
+                                        <div className={'h-1 w-80 opacity-95 bg-gray-100 rounded-full'} />
+                                    </div>
+                                    <h1 className="text-3xl text-center opacity-95 leading-none font-extrabold text-gray-100 tracking-tight mb-8">Structural Monitoring</h1>
                                 </div>
                             </div>
                         </div>
