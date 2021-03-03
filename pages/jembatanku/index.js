@@ -141,7 +141,23 @@ export default function Home() {
                         }
                     }}
                 >
-                    <section
+                    <section id={'solution'} style={{ minHeight: 'calc(100vh + 2rem)' }} className={'z-30 relative flex flex-col content-center items-center px-0 py-16 md:px-24'}>
+                        <div className={'w-full p-6'}>
+                            <h3 className="text-5xl text-center md:text-right leading-none font-extrabold text-gray-900 tracking-tight mb-8">
+                                Documents.
+							</h3>
+                            <p className={'text-justify md:text-right text-lg sm:text-2xl font-medium sm:leading-10 mb-6 text-gray-800'}>
+                                To know our product better, we provides a booklet and an e-flyer to share around the world.
+							</p>
+                        </div>
+                        <div className="relative flex-1 min-w-full min-h-full">
+                            <div className={'absolute z-40 flex min-h-full min-w-full'}>
+                                <div className={'flex-grow md:rounded-3xl transform shadow-lg bg-gradient-to-tr from-purple-400 to-purple-700 md:-rotate-2'}></div>
+                            </div>
+                            <Documents />
+                        </div>
+                    </section>
+                    {/* <section
                         id={'documents'}
                         style={{ minHeight: 'calc(100vh + 2rem)' }}
                         className={'z-30 relative flex flex-col content-center items-center px-0 py-16 md:px-24'}
@@ -160,7 +176,7 @@ export default function Home() {
                             </div>
                             <Documents />
                         </div>
-                    </section>
+                    </section> */}
                 </InView>
             </div>
             <InView
