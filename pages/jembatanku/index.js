@@ -60,7 +60,7 @@ export default function Home() {
                 }}
             >
                 <section id={'landing'} className={'min-h-screen overflow-hidden relative gap-6 flex flex-col content-center items-center'} style={{ background: '#121113' }}>
-                    <video className={'z-10 absolute max-w-none min-w-full min-h-full bg-cover bg-center bg-no-repeat bg-fixed'} autoPlay loop muted id="myVideo" style={{ backgroundImage: 'url("' + JembatankuBG + '")', opacity: 0.8 }}>
+                    <video playsInline className={'z-10 absolute max-w-none min-w-full min-h-full bg-cover bg-center bg-no-repeat bg-fixed'} autoPlay loop muted id="myVideo" style={{ backgroundImage: 'url("' + JembatankuBG + '")', opacity: 0.8 }}>
                         <source src={'/bridge.mp4'} type="video/mp4" />
                     </video>
                     <div className={'absolute z-20 w-full h-screen m-auto'} />
@@ -68,8 +68,8 @@ export default function Home() {
                         <div className={'absolute flex min-h-full min-w-full'}>
                             <div className={'flex-grow m-auto px-14 py-12 md:py-0 sm:px-12'}>
                                 <div className={'grid grid-cols-1 place-items-center'}>
-                                    <h1 style={{ WebkitTextStroke: '0.5px black' }} className={'text-5xl md:text-8xl text-center leading-none font-extrabold text-gray-200 tracking-tight mb-8'}>JembatanKu</h1>
-                                    <h1 style={{ WebkitTextStroke: '0.5px black' }} className="text-xl text-center opacity-95 leading-none font-extrabold text-gray-100 tracking-tight mb-8">Structural Health Monitoring System</h1>
+                                    <h1 className={'text-5xl md:text-8xl opacity-95 text-center leading-none font-extrabold text-gray-200 tracking-tight mb-8'}>JembatanKu</h1>
+                                    <h1 className="text-xl text-center opacity-95 leading-none font-extrabold text-gray-100 tracking-tight mb-8">Structural Health Monitoring System</h1>
                                 </div>
                             </div>
                         </div>
@@ -127,7 +127,7 @@ export default function Home() {
                                     </p>
                                 </div>
                             </div>
-                            <div className={'z-40 w-full col-span-2 md:col-span-1 flex flex-wrap content-center items-center h-screen p-0.5'}>
+                            <div className={'z-40 w-full col-span-2 md:col-span-1 flex flex-wrap content-center items-center h-screen p-6'}>
                                 <Topology className={'w-full'} />
                             </div>
                         </div>
