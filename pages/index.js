@@ -124,20 +124,28 @@ export default function Home() {
 						}
 					}}
 				>
-					<section id={'solution'} style={{ minHeight: 'calc(100vh + 2rem)' }} className={'z-30 relative flex flex-col content-center items-center px-0 py-16 md:px-24'}>
-						<div className={'w-full p-6'}>
-							<h3 className="text-5xl leading-none text-center md:text-left font-extrabold text-gray-900 tracking-tight mb-8">
-								Our Solution.
-							</h3>
-							<p className={'text-lg sm:text-2xl text-justify font-medium sm:leading-10 space-y-6 mb-6 text-gray-600'}>
-								We’re leading designer and manufacturer of data logger and data acquisition system, specialize on predictive maintenance, monitoring and early warning system. Driven by a customer oriented approach with focus on innovative technology solutions, we want to empower our customers to achieve their goals perfectly.
-							</p>
-						</div>
-						<div className="relative flex-1 min-w-full min-h-full">
-							<div className={'absolute z-40 flex min-h-full min-w-full'}>
-								<div className={'flex-grow md:rounded-3xl transform shadow-lg bg-gradient-to-tr from-purple-400 to-purple-700 md:-rotate-2'}></div>
+					<section
+						id={'solution'}
+					>
+						<div className={'container m-auto py-12 min-h-screen h-full relative grid grid-cols-3 gap-6 content-center'}>
+							<div className={'col-span-3 h-full z-50 p-6 flex flex-wrap content-center items-center'}>
+								<div className={'mx-auto space-y-6'}>
+									<h2 className="text-5xl text-center md:text-left leading-none font-extrabold text-gray-900 tracking-tight mb-8">
+										Our Solution.
+									</h2>
+									<p className={'text-justify text-lg sm:text-2xl font-medium sm:leading-10 mb-6 text-gray-800'}>
+										We’re leading designer and manufacturer of data logger and data acquisition system, specialize on predictive maintenance, monitoring and early warning system. Driven by a customer oriented approach with focus on innovative technology solutions, we want to empower our customers to achieve their goals perfectly.
+                                    </p>
+								</div>
 							</div>
-							<Solution />
+							<div className={'col-span-3 z-40 p-6 w-full h-full flex flex-wrap content-center items-center m-auto'}>
+								<div className="relative flex min-w-full min-h-full">
+									<div className={'absolute z-30 flex min-h-full min-w-full'}>
+										<div className={'flex-grow md:rounded-3xl transform shadow-lg  bg-gradient-to-tr from-purple-400 to-purple-700 md:-rotate-2'}></div>
+									</div>
+									<Solution />
+								</div>
+							</div>
 						</div>
 					</section>
 				</InView>
@@ -151,22 +159,27 @@ export default function Home() {
 				>
 					<section
 						id={'products'}
-						style={{ minHeight: 'calc(100vh + 2rem)', background: '#222725' }}
-						className={'z-30 relative flex flex-col content-center items-center px-0 py-16 md:px-24 bg-gradient-to-br from-gray-800 to-gray-600'}
+						style={{ background: '#222725' }}
 					>
-						<div className={'w-full p-6'}>
-							<h3 className="text-5xl text-center md:text-right leading-none font-extrabold text-gray-100 tracking-tight mb-8">
-								Products.
-							</h3>
-							<p className={'text-justify md:text-right text-lg sm:text-2xl font-medium sm:leading-10 mb-6 text-gray-200'}>
-								Intensive testing had conducted on our product series to offer reliability, precision and higher customers satisfaction level.
-							</p>
-						</div>
-						<div className="relative flex-1 min-w-full min-h-full">
-							<div className={'absolute z-40 flex min-h-full min-w-full'}>
-								<div className={'flex-grow md:rounded-3xl transform shadow-lg bg-gradient-to-tr from-blue-400 to-blue-700 md:rotate-2'}></div>
+						<div className={'container m-auto py-12 min-h-screen h-full relative grid grid-cols-3 gap-6 content-center'}>
+							<div className={'col-span-3 h-full z-50 p-6 flex flex-wrap content-center items-center'}>
+								<div className={'mx-auto space-y-6'}>
+									<h2 className="text-5xl text-center md:text-right leading-none font-extrabold text-gray-100 tracking-tight mb-8">
+										Products.
+									</h2>
+									<p className={'text-justify md:text-right text-lg sm:text-2xl font-medium sm:leading-10 mb-6 text-gray-200'}>
+										Intensive testing had conducted on our product series to offer reliability, precision and higher customers satisfaction level.
+                                    </p>
+								</div>
 							</div>
-							<Product />
+							<div className={'col-span-3 z-40 p-6 w-full h-full flex flex-wrap content-center items-center m-auto'}>
+								<div className="relative flex min-w-full min-h-full">
+									<div className={'absolute z-30 flex min-h-full min-w-full'}>
+										<div className={'flex-grow md:rounded-3xl transform shadow-lg  bg-gradient-to-tr from-blue-400 to-blue-700 md:rotate-2'}></div>
+									</div>
+									<Product />
+								</div>
+							</div>
 						</div>
 					</section>
 				</InView>
@@ -178,21 +191,25 @@ export default function Home() {
 						}
 					}}
 				>
-					<section id={'technology'} style={{ minHeight: 'calc(100vh + 2rem)' }} className={'z-30 relative flex flex-col content-center items-center px-0 py-16 md:px-24'}>
-						<div className={'w-full p-6'}>
-							<h3 className="text-5xl text-center md:text-left leading-none font-extrabold text-gray-900 tracking-tight mb-8">
-								Technology.
-							</h3>
-							<p className={'text-lg text-justify md:text-left sm:text-2xl font-medium sm:leading-10 mb-6 text-gray-600'}>
-								In order to implement a robust production plans and easier maintenance process, we use the full-stack MERN Solution and other reliable programming language.
-							</p>
-						</div>
-						<div className="relative flex-1 min-w-full min-h-full">
-							<div className={'absolute z-40 flex min-h-full min-w-full'}>
-								<div className={'flex-grow md:rounded-3xl transform shadow-lg bg-gradient-to-tr from-yellow-400 to-yellow-700 md:-rotate-2'}></div>
+					<section
+						id={'technology'}
+					>
+						<div className={'container m-auto py-12 min-h-screen h-full relative grid grid-cols-3 gap-6 content-center'}>
+							<div className={'col-span-3 h-full z-50 p-6 flex flex-wrap content-center items-center'}>
+								<div className={'mx-auto space-y-6'}>
+									<h2 className="text-5xl text-center md:text-left leading-none font-extrabold text-gray-900 tracking-tight mb-8">
+										Technology.
+									</h2>
+									<p className={'text-justify text-lg sm:text-2xl font-medium sm:leading-10 mb-6 text-gray-800'}>
+										In order to implement a robust production plans and easier maintenance process, we use the full-stack MERN Solution and other reliable programming language.
+                                    </p>
+								</div>
 							</div>
-							<div className={'relative z-50 flex min-h-full min-w-full p-12'}>
-								<div className={'flex-grow m-auto'}>
+							<div className={'col-span-3 z-40 p-6 w-full h-full flex flex-wrap content-center items-center m-auto'}>
+								<div className="relative flex min-w-full min-h-full">
+									<div className={'absolute z-30 flex min-h-full min-w-full'}>
+										<div className={'flex-grow md:rounded-3xl transform shadow-lg bg-gradient-to-tr from-yellow-400 to-yellow-700 md:-rotate-2'}></div>
+									</div>
 									<Technology />
 								</div>
 							</div>

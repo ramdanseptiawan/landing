@@ -14,7 +14,7 @@ const Product = () => {
         <div className={'flex-grow m-auto'}>
             <div
                 onMouseLeave={() => setStandby(false)}
-                className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-8 md:px-0'}
+                className={'grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8 px-0 md:px-8'}
             >
                 <div onMouseOver={() => setStandby(true)}>
                     <Card

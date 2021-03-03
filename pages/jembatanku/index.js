@@ -93,7 +93,7 @@ export default function Home() {
                     <section id={'about'}>
                         <div className={'container m-auto py-12 min-h-screen h-full relative grid grid-cols-2 gap-6 content-center'}>
                             <div className={'z-40 p-6 w-full col-span-2 md:col-span-1 flex flex-wrap content-center items-center m-auto'}>
-                                <iframe aria-errormessage={(error) => console.log(error)} frameBorder={0} height={'300'} className={'flex-grow rounded'} src={"https://www.youtube.com/embed/4wOe2lbk4XU?enablejsapi=1&version=3&controls=0&rel=0"} allow="autoplay; encrypted-media;" allowFullScreen></iframe>
+                                <iframe style={{ height: '50vh' }} aria-errormessage={(error) => console.log(error)} height={'100%'} frameBorder={0} className={'flex-grow rounded'} src={"https://www.youtube.com/embed/4wOe2lbk4XU?enablejsapi=1&version=3&controls=0&rel=0"} allow="autoplay; encrypted-media;" allowFullScreen></iframe>
                             </div>
                             <div className={'col-span-2 h-full z-50 p-6 md:col-span-1 flex flex-wrap content-center items-center'}>
                                 <div className={'mx-auto space-y-6'}>
@@ -121,7 +121,6 @@ export default function Home() {
                         style={{ background: '#222725' }}
                     >
                         <div className={'container m-auto py-12 min-h-screen h-full relative grid grid-cols-2 gap-6 content-center'}>
-
                             <div className={'col-span-2 h-full z-50 p-6 md:col-span-1 flex flex-wrap content-center items-center'}>
                                 <div className={'mx-auto space-y-6'}>
                                     <h2 className="text-5xl text-center md:text-left leading-none font-extrabold text-gray-100 tracking-tight mb-8">
@@ -147,23 +146,23 @@ export default function Home() {
                     }}
                 >
                     <section
-                        id={'solution'}
+                        id={'documents'}
                     >
-                        <div className={'container m-auto py-12 min-h-screen h-full relative grid grid-cols-1 gap-6 content-center'}>
-                            <div className={'h-full z-50 p-6 flex flex-wrap content-center items-center'}>
+                        <div className={'container m-auto py-12 min-h-screen h-full relative grid grid-cols-3 gap-6 content-center'}>
+                            <div className={'col-span-3 md:col-span-1 h-full z-50 p-6 flex flex-wrap content-center items-center'}>
                                 <div className={'mx-auto space-y-6'}>
-                                    <h3 className="text-5xl text-center md:text-right leading-none font-extrabold text-gray-900 tracking-tight mb-8">
+                                    <h2 className="text-5xl text-center md:text-left leading-none font-extrabold text-gray-900 tracking-tight mb-8">
                                         Documents.
-                                    </h3>
-                                    <p className={'text-justify md:text-right text-lg sm:text-2xl font-medium sm:leading-10 mb-6 text-gray-800'}>
+									</h2>
+                                    <p className={'text-gray-800 text-lg text-justify font-medium sm:leading-10 mx-auto mb-6'}>
                                         To know our product better, we provides a booklet and an e-flyer to share around the world.
-							        </p>
+                                    </p>
                                 </div>
                             </div>
-                            <div className={'z-40 p-6 w-full h-full flex flex-wrap content-center items-center m-auto'}>
+                            <div className={'col-span-3 md:col-span-2 z-40 p-6 w-full h-full flex flex-wrap content-center items-center m-auto'}>
                                 <div className="relative flex min-w-full min-h-full">
                                     <div className={'absolute z-30 flex min-h-full min-w-full'}>
-                                        <div className={'flex-grow md:rounded-3xl transform shadow-lg bg-gradient-to-tr from-purple-400 to-purple-700 md:-rotate-2'}></div>
+                                        <div className={'flex-grow md:rounded-3xl transform shadow-lg bg-gradient-to-tr from-yellow-400 to-yellow-700  md:-rotate-2'}></div>
                                     </div>
                                     <Documents />
                                 </div>
