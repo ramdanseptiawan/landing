@@ -99,8 +99,10 @@ export default function Home() {
 						style={{ background: '#222725' }}
 					>
 						<div className={'container m-auto py-12 min-h-screen h-full relative grid grid-cols-2 gap-6 content-center'}>
-							<div className={'z-40 w-full h-screen col-span-2 md:col-span-1 flex flex-wrap content-center items-center m-auto'}>
-								<Networking className={'m-auto flex-grow'} />
+							<div className={'z-40 w-full h-screen col-span-2 md:col-span-1 p-6 flex flex-wrap content-center items-center m-auto'}>
+								<div className={'w-full p-16'}>
+									<Networking className={'absolute'} />
+								</div>
 							</div>
 							<div className={'col-span-2 h-full z-50 p-6 md:col-span-1 flex flex-wrap content-center items-center'}>
 								<div className={'mx-auto space-y-6'}>
