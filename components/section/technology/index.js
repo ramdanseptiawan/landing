@@ -2,7 +2,7 @@ import Card from "../../card";
 import AndroidStudioLogo from "../../../assets/Logo/androidStudio.svg";
 import CPPLogo from "../../../assets/Logo/cpp.svg";
 import MongoLogo from "../../../assets/Logo/mongo.svg";
-import ExpressLogo from "../../../assets/Logo/expressjs.svg";
+import PythonLogo from "../../../assets/Logo/python.svg";
 import ReactLogo from "../../../assets/Logo/react.svg";
 import NodeLogo from "../../../assets/Logo/nodejs.svg";
 import KotlinLogo from "../../../assets/Logo/kotlin.svg";
@@ -22,11 +22,6 @@ const Technology = () => {
             animate={false}
             svg={<MongoLogo className={"mx-auto w-36 h-24"} />}
             // title={'MongoDB'}
-          />
-          <Card
-            animate={false}
-            svg={<ExpressLogo className={"mx-auto w-28 h-24"} />}
-            // title={'Express.js'}
           />
           <Card
             animate={false}
@@ -57,6 +52,11 @@ const Technology = () => {
             animate={false}
             svg={<CPPLogo className={"mx-auto w-24 h-24 p-2"} />}
             // title={'C/C++'}
+          />
+          <Card
+            animate={false}
+            svg={<PythonLogo className={"mx-auto w-28 h-24"} />}
+            // title={'Express.js'}
           />
         </div>
       </div>
